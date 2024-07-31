@@ -1,7 +1,6 @@
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {useAddDriverMutation} from '../../../redux/drivers';
 import {Button, Grid, TextInput, Modal, Select, Space} from '@mantine/core';
 import { DateInput } from '@mantine/dates';
 // import {useMediaQuery} from "@mantine/hooks";
@@ -40,18 +39,9 @@ const NewDriver = ({open, onClose}: { open: boolean; onClose: () => void }) => {
     const {handleSubmit, control, reset} = useForm<FormData>({
         resolver: yupResolver(schema)
     });
-
-    const [addDriver, {isLoading,isSuccess,isError,error}] = useAddDriverMutation();
-    useEffect(() => {
-        if(isSuccess){
-            toast.success('New Driver recorded')
-            reset()
-        }
-    }, [isSuccess]);
     return (
         <Modal opened={open} onClose={onClose} title='Add new Driver' size="70%">
-            {isError && <ErrorAlert error={error.data.message} /> }
-            <form onSubmit={handleSubmit(addDriver)} noValidate>
+            <form onSubmit={handleSubmit(()=>console.log('sasa'))} noValidate>
                 <Grid>
                     <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
                         <Controller

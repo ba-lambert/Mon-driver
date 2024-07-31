@@ -9,7 +9,6 @@ import '@mantine/dates/styles.layer.css';
 import '@mantine/core/styles/Input.css';
 import '@mantine/core/styles/Button.css';
 import './layout.css';
-import ProtectedRoute from "../Component/Auth/ProtectedRoutes.tsx";
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -18,7 +17,6 @@ const DashboardLayout = () => {
     setSidebarOpen(!sidebarOpen);
   };
   return (
-      <ProtectedRoute>
     <div className="flex h-screen overflow-hidden bg-gray-100">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
@@ -28,7 +26,6 @@ const DashboardLayout = () => {
         </main>
       </div>
     </div>
-      </ProtectedRoute>
   );
 };
 

@@ -6,10 +6,7 @@
  import { TfiEmail } from "react-icons/tfi";
  import { TbPasswordUser } from "react-icons/tb";
  import log from "../../assets/images/log.png";
- import { useSignupMutation } from "../../redux/api";
  import { useDispatch } from "react-redux";
- import { setToken } from "../../redux/slices/authSlice";
-
  interface SignUpFormInputs {
    firstName: string;
    lastname: string;
@@ -26,27 +23,25 @@
      watch,
    } = useForm<SignUpFormInputs>();
    const password = watch("password");
-
-   const [signup, { isLoading }] = useSignupMutation();
    const navigate = useNavigate();
    const dispatch = useDispatch();
 
    const onSubmit: SubmitHandler<SignUpFormInputs> = async (data) => {
      try {
-       const result = await signup(data).unwrap();
-       if (result.data.success) {
-         const user = {
-           id: result.data._id,
-           fullname: result.data.fullname,
-           gender: result.data.gender,
-           DOB: result.data.DOB,
-           username: result.data.username,
-           email: result.data.email,
-           role: result.data.role,
-         };
-         dispatch(setToken({ token: result.data.token, user }));
-         navigate("/login");
-       }
+      //  const result = await signup(data).unwrap();
+      //  if (result.data.success) {
+      //    const user = {
+      //      id: result.data._id,
+      //      fullname: result.data.fullname,
+      //      gender: result.data.gender,
+      //      DOB: result.data.DOB,
+      //      username: result.data.username,
+      //      email: result.data.email,
+      //      role: result.data.role,
+      //    };
+      //    dispatch(setToken({ token: result.data.token, user }));
+      //    navigate("/login");
+      //  }
      } catch (error) {
        console.error("Registration failed", error);
      }

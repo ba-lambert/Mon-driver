@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import PatternImg from './../../assets/images/Patern.png';
-import { useSignupMutation } from "../../redux/api.ts";
 import CustomInput from "../../Component/reusables/forms/inputs/MyInputBox.tsx";
 import {useNavigate} from "react-router-dom";
 import ErrorAlert from "../../Component/Shared/ErrorAlert.tsx";
@@ -34,11 +33,11 @@ interface IFormInput {
 }
 
 const SignUp = () => {
-    const [signup, { data, isLoading, isError ,isSuccess, error }] = useSignupMutation();
+    // const [signup, { data, isLoading, isError ,isSuccess, error }] = useSignupMutation();
     const Navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
-        resolver: yupResolver(schema),
-    });
+    // const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
+    //     resolver: yupResolver(schema),
+    // });
 
 
     const navigate = useNavigate()
@@ -46,12 +45,12 @@ const SignUp = () => {
         navigate('/auth/signin');
     };
 
-    useEffect(() => {
-        if(isSuccess){
-            toast.success('Your Account has been created successfully')
-            Navigate('/auth/signin')
-        }
-    }, [isSuccess]);
+    // useEffect(() => {
+    //     if(isSuccess){
+    //         toast.success('Your Account has been created successfully')
+    //         Navigate('/auth/signin')
+    //     }
+    // }, [isSuccess]);
 
     return (
         <div className="App">
@@ -83,7 +82,7 @@ const SignUp = () => {
                                 </h2>
                                 <form
                                     className="bg-white rounded-lg shadow-hard-gray"
-                                    onSubmit={handleSubmit}
+                                    onSubmit={()=>console.log('')}
                                 >
                                     <div className="p-8 text-sm space-y-6">
                                         {form.map((_form, _index) => {

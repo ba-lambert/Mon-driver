@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import CustomInput from "../../Component/reusables/forms/inputs/MyInputBox.tsx";
-import {useLoginMutation} from "../../redux/api.ts";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import ErrorAlert from "../../Component/Shared/ErrorAlert.tsx";
@@ -25,15 +24,6 @@ const SignIn: React.FC = () => {
         resolver: yupResolver(schema),
     });
 
-    const [login, {isSuccess, isError, isLoading, error}] = useLoginMutation();
-
-    useEffect(() => {
-        if(isSuccess){
-            toast.success('Login successfull');
-            navigate('/dashboard')
-        }
-    }, [isSuccess]);
-
     const handleSignUpClick = () => {
         navigate('/auth/signup');
     };
@@ -42,7 +32,6 @@ const SignIn: React.FC = () => {
     // }
     return (
         <div className="h-screen items-center flex justify-center px-5 lg:px-0">
-            {isError && <ErrorAlert error={error ? error?.data?.message :'something went wrong'} />}
             <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="flex-1 bg-blue-900 text-center hidden md:flex">
                     <div
@@ -59,7 +48,7 @@ const SignIn: React.FC = () => {
                             <p className="text-[12px] text-gray-500">Enter your details to sign in</p>
                         </div>
                         <div className="w-full flex-1 mt-8">
-                            <form className="mx-auto max-w-xs flex flex-col gap-4" onSubmit={handleSubmit(login)}>
+                            <form className="mx-auto max-w-xs flex flex-col gap-4" onSubmit={()=>console.log('qwre')}>
                                 <CustomInput
                                     label="username"
                                     type="username"
@@ -90,7 +79,7 @@ const SignIn: React.FC = () => {
                                         <circle cx="8.5" cy="7" r="4" />
                                         <path d="M20 8v6M23 11h-6" />
                                     </svg>
-                                    <span className="ml-3">{isLoading ? '.....' : 'Sign In'}</span>
+                                    <span className="ml-3">Sign In</span>
                                 </button>
                                 <p className="mt-6 text-xs text-gray-600 text-center">
                                     Don't have an account?{' '}

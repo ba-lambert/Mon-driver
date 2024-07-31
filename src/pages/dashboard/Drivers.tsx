@@ -1,7 +1,6 @@
 import Breadcrumb from "../../Component/dashboard/Breadcrumb.tsx";
 import { useEffect, useState } from "react";
 import NewDriver from "./drivers/NewDriver.tsx";
-import { useGetDriversQuery } from "../../redux/drivers";
 import ReusableTableData from "../../Component/reusables/datatable/MantineDataTable.tsx";
 import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconEye, IconTrash } from "@tabler/icons-react";

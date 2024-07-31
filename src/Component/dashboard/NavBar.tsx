@@ -1,12 +1,9 @@
 import { FaBars as HamburgerIcon } from "react-icons/fa";
-import useAuth from '../../redux/hooks/useAuth.ts';
 interface NavBarProps {
   toggleSidebar: () => void;
 }
 
 const NavBar: React.FC<NavBarProps> = ({ toggleSidebar }) => {
-    const {user} = useAuth()
-    console.log(user)
     return (
     <nav className="bg-white dark:bg-gray-800 shadow px-4 py-4 flex items-center justify-between">
       <button
