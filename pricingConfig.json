@@ -1,0 +1,15 @@
+ {
+   "single": {
+     "kigali": 15000,
+     "default": 25000
+   },
+   "roundtrip": 25000,
+   "day": 25000,
+   "night": 25000,
+   "fullday": 40000,
+   "weekly": {
+     "baseAmount": 40000,
+     "weeklyAmount": 200000
+   },
+   "monthly": 300000
+ }
