@@ -15,7 +15,7 @@
    useEffect(() => {
      if (modalIsOpen) {
        document.body.classList.add("no-scroll");
-       // Create an overlay
+    
        const overlay = document.createElement("div");
        overlay.className = "fixed-background";
        document.body.appendChild(overlay);

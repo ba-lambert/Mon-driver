@@ -19,6 +19,7 @@
   import ContactUsPage from "./Component/Main/ContactUsPage";
   import LoginLayout from "./Layout/LoginLayout";
   import LoginPage from "./Component/Main/LogIn";
+  import Aboutus from "./Component/Main/Aboutus";
 
   const AppRoutes = () => {
     const routes = useRoutes([
@@ -47,10 +48,10 @@
           {
             path: "Monchauffeur",
             element: (
-                <>
-                  <PageTitle title="Mon-Chaufferurs | Monchauffeur" />
-                  <Monchauffeur />
-                </>
+              <>
+                <PageTitle title="Mon-Chaufferurs | Monchauffeur" />
+                <Monchauffeur />
+              </>
             ),
           },
           {
@@ -99,6 +100,16 @@
               </>
             ),
           },
+          {
+            path: "Aboutus",
+            element: (
+              <>
+                <PageTitle title="Mon-Chauffeurs | Aboutus" />
+                <Aboutus />
+              </>
+            ),
+          },
+
           {
             path: "*",
             element: (
