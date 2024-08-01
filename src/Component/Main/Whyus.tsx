@@ -78,7 +78,7 @@
                </div>
              ))}
            </div>
-           <p className="w-full m-10 mt-24 font-bold absolute sm:text-4xl text-3xl text-green-500 ">
+           <p className="font-bold absolute sm:text-4xl text-3xl text-green-500 ">
              GERAYO AMAHORO
            </p>
            <img

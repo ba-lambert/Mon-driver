@@ -1,6 +1,6 @@
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 
-const Pagination = ({ profilesPerPage, totalProfiles, paginate, currentPage }) => {
+const Pagination = ({ profilesPerPage, totalProfiles, paginate, currentPage }:{ profilesPerPage:any, totalProfiles:any, paginate:any, currentPage:any }) => {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalProfiles / profilesPerPage); i++) {

@@ -114,6 +114,7 @@
    };
 
    const handleBookDriver = (driver: Driver) => {
+    console.log(driver)
      setSelectedDriver(null);
      setIsBookingModalOpen(true); 
    };

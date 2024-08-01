@@ -9,13 +9,13 @@
          alt="logo"
          className="w-40 h-auto sm:w-auto sm:h-[70px] mb-4 mr-2  sm:mb-0"
        />
-       <div className="flex flex-row items-center justify-center space-x-5">
-       <div className="sm:px-6 sm:py-2 sm:w-36 bg-green-500 rounded-full sm:ml-80 mb-4 sm:mb-0">
-         <p className="text-md sm:text-md font-semibold text-white">
+       <div className="flex flex-row items-center justify-center space-x-2 sm:space-x-5">
+       <div className="px-3 py-2 sm:px-6 sm:py-2.5 bg-green-500 rounded-full cursor-pointer">
+         <p className="text-xs sm:text-sm font-semibold uppercase text-white">
            Hire a driver
          </p>
        </div>
-       <div className="px-6 py-2 border-blue-950 border-2 rounded-2xl">
+       <div className="px-3 py-1 sm:px-6 sm:py-2 border-blue-950 border-2 rounded-2xl">
          <p className="font-semibold text-sm sm:text-md ">RW</p>
        </div>
        </div>

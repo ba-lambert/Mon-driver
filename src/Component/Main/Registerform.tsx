@@ -1,12 +1,12 @@
  import React from "react";
  import { useForm, SubmitHandler } from "react-hook-form";
- import { Link, useNavigate } from "react-router-dom";
+ import { Link } from "react-router-dom";
  import backgroundImage from "../../assets/images/BACKGROUND IMAGE 2-01.png";
  import { IoPersonSharp } from "react-icons/io5";
  import { TfiEmail } from "react-icons/tfi";
  import { TbPasswordUser } from "react-icons/tb";
  import log from "../../assets/images/log.png";
- import { useDispatch } from "react-redux";
+//  import { useDispatch } from "react-redux";
  interface SignUpFormInputs {
    firstName: string;
    lastname: string;
@@ -23,11 +23,12 @@
      watch,
    } = useForm<SignUpFormInputs>();
    const password = watch("password");
-   const navigate = useNavigate();
-   const dispatch = useDispatch();
+  //  const navigate = useNavigate();
+  //  const dispatch = useDispatch();
 
    const onSubmit: SubmitHandler<SignUpFormInputs> = async (data) => {
      try {
+      console.log(data)
       //  const result = await signup(data).unwrap();
       //  if (result.data.success) {
       //    const user = {
@@ -170,9 +171,9 @@
              <button
                type="submit"
                className="w-full py-2 px-4 bg-sky-800 text-white font-bold rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-               disabled={isLoading}
+               
              >
-               {isLoading ? "Signing Up..." : "Sign Up"}
+               {"Sign Up"}
              </button>
            </form>
            <div className="mt-6 text-center">

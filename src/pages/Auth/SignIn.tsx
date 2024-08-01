@@ -1,13 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import CustomInput from "../../Component/reusables/forms/inputs/MyInputBox.tsx";
+import CustomInput from "../../Component/reusables/forms/inputs/MyInputBox";
 import {useNavigate} from "react-router-dom";
-import {toast} from "react-toastify";
-import ErrorAlert from "../../Component/Shared/ErrorAlert.tsx";
 
-// Validation schema using Yup
 const schema = yup.object().shape({
     username: yup.string().required('username is required'),
     password: yup.string().min(6, 'Password must be at least 6 characters long').required('Password is required'),
@@ -20,7 +17,7 @@ interface IFormInput {
 
 const SignIn: React.FC = () => {
     const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
+    const { register, formState: { errors } } = useForm<IFormInput>({
         resolver: yupResolver(schema),
     });
 

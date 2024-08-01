@@ -4,9 +4,6 @@
   import HomePage from "./pages/main/HomePage";
   import AboutPage from "./pages/main/About";
   import NotFound from "./pages/NotFound";
-  import Dashboard from "./pages/dashboard/Dashboard";
-  import Drivers from "./pages/dashboard/Drivers";
-  import DashboardLayout from "./Layout/Dashboardlayout";
   import SignIn from "./pages/Auth/SignIn";
   import SignUp from "./pages/Auth/SignUp";
   import VerifyAccount from "./pages/Auth/VerifyAccount";
@@ -20,7 +17,6 @@
   import Driverpage from "./Component/Main/Driverpage";
   import BookingPage from "./Component/Main/BookingPage";
   import ContactUsPage from "./Component/Main/ContactUsPage";
-  import PrivateRoute from "./Component/Main/PrivateRoute";
   import LoginLayout from "./Layout/LoginLayout";
   import LoginPage from "./Component/Main/LogIn";
 
@@ -51,12 +47,10 @@
           {
             path: "Monchauffeur",
             element: (
-              <PrivateRoute>
                 <>
                   <PageTitle title="Mon-Chaufferurs | Monchauffeur" />
                   <Monchauffeur />
                 </>
-              </PrivateRoute>
             ),
           },
           {
@@ -136,40 +130,6 @@
               <>
                 <PageTitle title="Mon-Chaufferurs | RegisterForm" />
                 <RegisterForm />
-              </>
-            ),
-          },
-        ],
-      },
-
-      {
-        path: "/dashboard",
-        element: <DashboardLayout />,
-        children: [
-          {
-            index: true,
-            element: (
-              <>
-                <PageTitle title="Mon-Chaufferurs | Dashboard" />
-                <Dashboard />
-              </>
-            ),
-          },
-          {
-            path: "drivers",
-            element: (
-              <>
-                <PageTitle title="Mon-Chaufferurs | Drivers" />
-                <Drivers />
-              </>
-            ),
-          },
-          {
-            path: "*",
-            element: (
-              <>
-                <PageTitle title="Mon-Chaufferurs | Not Found" />
-                <NotFound />
               </>
             ),
           },

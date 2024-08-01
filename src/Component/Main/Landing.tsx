@@ -70,9 +70,9 @@ const WhyUs = () => {
         >
           <PiSteeringWheel size={150} color="white" />
         </div>
-        <div className="relative">
+        <div className="relative w-full sm:w-96">
           <div
-            className="bg-blue-800 w-full sm:w-44 h-[30vh] sm:h-[70vh] flex justify-center items-center cursor-pointer"
+            className="bg-blue-800 w-full sm:w-full h-[30vh] sm:h-[70vh] flex justify-center items-center cursor-pointer"
             onClick={openModal}
           >
             <button className="bg-white rounded-full p-2">

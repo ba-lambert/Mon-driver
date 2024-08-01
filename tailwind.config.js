@@ -10,9 +10,12 @@ export default {
         customBlue: "#05257E",
         lightBlue: "#F1F9FF",
       },
-
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
+      },
+      screens: {
+        md: "1024px", // You can adjust the value as needed
+        xl: "1440px", // You can adjust the value as needed
       },
       scrollbar: {
         // You can customize your scrollbars here
@@ -30,6 +33,7 @@ export default {
       },
     },
   },
-  plugins:
-   [require("tailwind-scrollbar")],
+  plugins: [
+    require("tailwind-scrollbar"),
+  ],
 };

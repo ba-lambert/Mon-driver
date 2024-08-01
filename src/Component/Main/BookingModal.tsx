@@ -28,7 +28,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onRequestClose,
 }) => {
-  const { control, handleSubmit, watch, getValues, formState: { errors } } = useForm({
+  const { control, handleSubmit, watch, formState: { errors } } = useForm({
     defaultValues: {
       name: "",
       phoneNumber: "",
@@ -41,7 +41,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
       numberOfDays: "",
       paymentMethod: "creditcard",
       cardNumber: "",
-      confirmPayment: false,
+      confirmPayment: "",
     },
   });
 

@@ -1,49 +1,41 @@
-import {useEffect} from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import PatternImg from './../../assets/images/Patern.png';
-import CustomInput from "../../Component/reusables/forms/inputs/MyInputBox.tsx";
-import {useNavigate} from "react-router-dom";
-import ErrorAlert from "../../Component/Shared/ErrorAlert.tsx";
-import {toast} from "react-toastify";
+// import {useNavigate} from "react-router-dom";
 
-const schema = yup.object().shape({
-    fullname: yup.string().required('Fullname is required'),
-    username: yup.string().required('Username is required'),
-    email: yup.string().email('Invalid email format').required('Email is required'),
-    gender: yup.string().required('Gender is required'),
-    DOB: yup.date().required('DOB is required'),
-    phone: yup
-        .string()
-        .matches(/^\d{10}$/, 'Phone number must be exactly 10 digits')
-        .required('Phone number is required'),
+// const schema = yup.object().shape({
+//     fullname: yup.string().required('Fullname is required'),
+//     username: yup.string().required('Username is required'),
+//     email: yup.string().email('Invalid email format').required('Email is required'),
+//     gender: yup.string().required('Gender is required'),
+//     DOB: yup.date().required('DOB is required'),
+//     phone: yup
+//         .string()
+//         .matches(/^\d{10}$/, 'Phone number must be exactly 10 digits')
+//         .required('Phone number is required'),
 
-    password: yup.string().min(6, 'Password must be at least 6 characters long').required('Password is required'),
-});
+//     password: yup.string().min(6, 'Password must be at least 6 characters long').required('Password is required'),
+// });
 
-interface IFormInput {
-    fullname: string;
-    username: string;
-    email: string;
-    gender: string;
-    phone:number;
-    DOB: string; // Consider using a Date type or a string in a specific date format
-    password: string;
-}
+// interface IFormInput {
+//     fullname: string;
+//     username: string;
+//     email: string;
+//     gender: string;
+//     phone:number;
+//     DOB: string; // Consider using a Date type or a string in a specific date format
+//     password: string;
+// }
 
 const SignUp = () => {
     // const [signup, { data, isLoading, isError ,isSuccess, error }] = useSignupMutation();
-    const Navigate = useNavigate()
+    // const Navigate = useNavigate()
     // const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
     //     resolver: yupResolver(schema),
     // });
 
 
-    const navigate = useNavigate()
-    const handleSignUpClick = () => {
-        navigate('/auth/signin');
-    };
+    // const navigate = useNavigate()
+    // const handleSignUpClick = () => {
+    //     navigate('/auth/signin');
+    // };
 
     // useEffect(() => {
     //     if(isSuccess){
@@ -85,7 +77,7 @@ const SignUp = () => {
                                     onSubmit={()=>console.log('')}
                                 >
                                     <div className="p-8 text-sm space-y-6">
-                                        {form.map((_form, _index) => {
+                                        {/* {form.map((_form, _index) => {
                                             return (
                                                 <Input
                                                     key={`form-${_index}`}
@@ -100,7 +92,7 @@ const SignUp = () => {
                                                     error={_form.error}
                                                 />
                                             );
-                                        })}
+                                        })} */}
                                         <input
                                             type="submit"
                                             value="Claim your free trial"
