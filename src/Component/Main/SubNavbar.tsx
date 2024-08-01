@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import not from "../../assets/images/notif.svg";
 import { Link } from "react-router-dom";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
-import driverImage2 from "../../assets/images/cc.png";
+import { IoIosNotifications } from "react-icons/io";
 
 const SubNavBar: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,9 +16,9 @@ const SubNavBar: React.FC = () => {
 
   return (
     <div className="flex justify-between sm:justify-end h-auto bg-customGreen bg-opacity-95 bg-cover bg-center">
-      <div className="flex justify-between sm:justify-end h-20 w-full bg-cover bg-center relative">
-        <img src={driverImage2} className="hidden sm:block sm:absolute top-0 left-0 sm:ml-10 w-20 h-20" />
-        <div className="flex justify-between items-center h-full px-4 w-full">
+      <div className="flex justify-between sm:justify-end h-14 w-full bg-cover bg-center relative">
+        {/* <img src={driverImage2} className="hidden sm:block sm:absolute top-0 left-0 sm:ml-10 w-20 h-20" /> */}
+        <div className="flex justify-between items-center space-x-6 h-full px-4 w-full">
           <div className="flex ml-auto items-center"></div>
           <button
             className="sm:hidden mr-8 absolute text-white"
@@ -28,7 +27,7 @@ const SubNavBar: React.FC = () => {
             <FiMenu size={30} />
           </button>
 
-          <ul className="sm:flex hidden sm:flex-row sm:space-x-5 space-x-3 text-white sm:mt-7 sm:ml-4 sm:p-0">
+          <ul className="hidden sm:flex flex-row text-white">
             <div className="flex sm:flex-row sm:space-x-5 space-x-3">
               <li className="ml-3">
                 <Link to="/Landingpage">
@@ -64,9 +63,9 @@ const SubNavBar: React.FC = () => {
           </ul>
 
           {/* Other Elements */}
-          <div className="flex items-center sm:mt-2 sm:ml-14 space-x-4">
+          <div className="flex items-center justify-center space-x-4">
             <button>
-              <FiUser size={30} color="white" className="" />
+              <FiUser size={25} color="white" className="" />
             </button>
             <Link
               to="/monchauffeur"
@@ -74,14 +73,7 @@ const SubNavBar: React.FC = () => {
             >
               My Chauffeurs
             </Link>
-
-            <div>
-              <img
-                src={not}
-                alt="Notifications"
-                className="sm:h-[60px] h-[60px]"
-              />
-            </div>
+              <IoIosNotifications size={25} color="white" />
           </div>
         </div>
 

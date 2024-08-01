@@ -1,370 +1,382 @@
- import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
-import { useForm, Controller } from "react-hook-form";
-import pricingConfig from "../../../pricingConfig.json";
+import { useState, useEffect } from "react";
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { Modal, Button, TextInput, Grid, Select, Paper } from "@mantine/core";
+import { TimeInput } from '@mantine/dates';
+import { useDisclosure } from "@mantine/hooks";
 
-interface BookingModalProps {
-  isOpen: boolean;
-  onRequestClose: () => void;
+interface FormValues {
+  name: string;
+  phoneNo: string;
+  email: string;
+  pickup: string;
+  dropoff: string;
+  time: string;
+  vehicleType: string;
+  region: string;
+  tripType: string;
+  proceedWithPayment: boolean;
 }
 
-interface PricingConfig {
-  single: {
-    kigali: number;
-    default: number;
-  };
-  roundtrip: number;
-  day: number;
-  night: number;
-  fullday: number;
-  weekly: {
-    baseAmount: number;
-    weeklyAmount: number;
-  };
-  monthly: number;
+const schema = yup.object().shape({
+  name: yup.string().required('Name is required'),
+  phoneNo: yup.string().required('Phone number is required'),
+  email: yup.string().email('Invalid email address').required('Email is required'),
+  pickup: yup.string().required('Pickup location is required'),
+  dropoff: yup.string().required('Dropoff location is required'),
+  time: yup.string().required('Time is required'),
+  vehicleType: yup.string().required('Vehicle type is required'),
+  region: yup.string().required('Region is required'),
+  tripType: yup.string().required('Trip type is required'),
+  proceedWithPayment: yup.boolean().oneOf([true], 'You must agree to proceed with payment').required()
+});
+
+const vehicleTypes = [
+  { value: "Sedan", label: "Sedan" },
+  { value: "SUV", label: "SUV" },
+  { value: "Van", label: "Van" },
+];
+
+const regions = [
+  { value: "Kigali", label: "Kigali" },
+  { value: "Upcountry", label: "Upcountry" },
+];
+
+const tripTypes = [
+  { value: "Single (3hrs)", label: "Single (3hrs)" },
+  { value: "Round", label: "Round" },
+  { value: "Day (8hrs)", label: "Day (8hrs)" },
+  { value: "Night (8hrs)", label: "Night (8hrs)" },
+  { value: "Full Day (24hrs)", label: "Full Day (24hrs)" },
+  { value: "Weekly", label: "Weekly" },
+  { value: "Monthly", label: "Monthly" },
+  { value: "Others", label: "Others" },
+];
+
+const prices: Record<string, Record<string, number | null>> = {
+  "Kigali": {
+    "Single (3hrs)": 15000,
+    "Round": 25000,
+    "Day (8hrs)": 25000,
+    "Night (8hrs)": 25000,
+    "Full Day (24hrs)": 40000,
+    "Weekly": 200000,
+    "Monthly": 300000,
+  },
+  "Upcountry": {
+    "Single (3hrs)": 25000,
+    "Round": 25000,
+    "Day (8hrs)": 25000,
+    "Night (8hrs)": 25000,
+    "Full Day (24hrs)": 40000,
+    "Weekly": null,
+    "Monthly": null,
+  }
+};
+
+interface BookDriverProps {
+  styles?: string;
 }
 
-const BookingModal: React.FC<BookingModalProps> = ({
-  isOpen,
-  onRequestClose,
-}) => {
-  const { control, handleSubmit, watch, formState: { errors } } = useForm({
+const BookDriver: React.FC<BookDriverProps> = (styles) => {
+  const [opened, { open, close }] = useDisclosure(false);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [price, setPrice] = useState<number | null>(null);
+
+  const { handleSubmit, control, reset, trigger, watch } = useForm<FormValues>({
+    resolver: yupResolver(schema),
+    mode: 'onChange',
     defaultValues: {
-      name: "",
-      phoneNumber: "",
-      email: "",
-      driverName: "",
-      fromLocation: "",
-      toLocation: "",
-      region: "kigali",
-      tripType: "single",
-      numberOfDays: "",
-      paymentMethod: "creditcard",
-      cardNumber: "",
-      confirmPayment: "",
-    },
+      name: '',
+      phoneNo: '',
+      email: '',
+      pickup: '',
+      dropoff: '',
+      time: '',
+      vehicleType: '',
+      region: '',
+      tripType: '',
+      proceedWithPayment: false // Default value for checkbox
+    }
   });
 
-  const [amount, setAmount] = useState(0);
-  const [step, setStep] = useState(1);
-
-  const formData = watch();
+  const region = watch('region');
+  const tripType = watch('tripType');
+  // const proceedWithPayment = watch('proceedWithPayment');
 
   useEffect(() => {
-    calculateAmount(formData);
-  }, [formData]);
-
-  const calculateAmount = (data: typeof formData) => {
-    let newAmount = 0;
-    const { tripType, region, numberOfDays } = data;
-    const config = pricingConfig as PricingConfig;
-
-    if (tripType === "weekly") {
-      newAmount = config.weekly.weeklyAmount;
-    } else if (tripType === "other") {
-      newAmount = (parseInt(numberOfDays) || 0) * 40000;
+    if (region && tripType) {
+      const selectedPrice = prices[region][tripType];
+      setPrice(selectedPrice !== null ? selectedPrice : null);
     } else {
-      const tripConfig = config[tripType as keyof PricingConfig];
+      setPrice(null);
+    }
+  }, [region, tripType]);
 
-      if (typeof tripConfig === "number") {
-        newAmount = tripConfig;
-      } else if (typeof tripConfig === "object") {
-        newAmount =
-          (tripConfig as any)[region as keyof typeof tripConfig] ||
-          (tripConfig as any).default;
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    try {
+      console.log("Form Submitted Data:", data);
+      // Perform any other actions such as booking the driver
+      reset();
+      setCurrentStep(0);
+      close();
+    } catch (error) {
+      console.error('Failed to book driver:', error);
+    }
+  };
+
+  const handleNext = async () => {
+    const currentStepFields = steps[currentStep].fields;
+
+    const isStepValid = await trigger(currentStepFields as (keyof FormValues)[]);
+
+    if (isStepValid) {
+      if (currentStep < steps.length - 1) {
+        setCurrentStep(prev => prev + 1);
       } else {
-        newAmount = 0;
+        handleSubmit(onSubmit)();
       }
     }
-
-    setAmount(newAmount);
   };
 
-  const onSubmit = (data: typeof formData) => {
-    console.log("Form Data:", data);
-    onRequestClose();
+  const handlePrevious = () => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
   };
 
-  const handleNext = () => {
-    // Validation before moving to the next step
-    handleSubmit(() => {
-      if (step === 1) {
-        setStep(2);
-      } else if (step === 2) {
-        setStep(3);
-      } else if (step === 3) {
-        setStep(4);
-      }
-    })();
+  const handleClose = () => {
+    setCurrentStep(0);
+    reset();  // Clear all form inputs
+    close();  // Close the modal
   };
 
-  return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      className="sm:w-1/2 h-auto bg-white  text-black text-xl p-8 rounded-lg mx-auto relative"
-      overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-      contentLabel="Book Driver Form"
-    >
-      <button
-        type="button"
-        onClick={onRequestClose}
-        className="absolute top-4 right-4 bg-green-500 text-white font-semibold py-2 px-4 rounded text-lg"
-      >
-        x
-      </button>
-      <h2 className="font-bold text-customBlue text-3xl mb-4">Book Driver</h2>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {step === 1 && (
-          <div className="flex flex-col   mb-4">
-            <div className="flex sm:flex-row flex-col justify-around">
-              <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold">Name</label>
-                <Controller
-                  name="name"
-                  control={control}
-                  rules={{ required: "Name is required" }}
-                  render={({ field }) => (
-                    <input
-                      type="text"
-                      {...field}
-                      className="border border-green-500 rounded focus:border-transparent"
-                    />
-                  )}
-                />
-                {errors.name && (
-                  <p className="text-green-500 text-sm font-bold italic">
-                    {errors.name.message}
-                  </p>
+  const steps = [
+    {
+      label: "Personal Information",
+      fields: ["name", "phoneNo", "email"],
+      component: (
+        <div>
+          <div className="bg-green-500 p-4 text-white font-bold">Personal Information</div>
+          <Grid>
+            <Grid.Col span={12}>
+              <Controller
+                name="name"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
+                    {...field}
+                    label="Name"
+                    placeholder="Enter your full name"
+                    error={error?.message}
+                  />
                 )}
-              </div>
-              <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold">Phone Number</label>
-                <Controller
-                  name="phoneNumber"
-                  control={control}
-                  rules={{ required: "Phone Number is required" }}
-                  render={({ field }) => (
-                    <input
-                      type="text"
-                      {...field}
-                      className="border border-green-500 rounded focus:border-transparent"
-                    />
-                  )}
-                />
-                {errors.phoneNumber && (
-                  <p className="text-green-500 text-sm font-bold italic">
-                    {errors.phoneNumber.message}
-                  </p>
+              />
+            </Grid.Col>
+            <Grid.Col span={6}>
+              <Controller
+                name="phoneNo"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
+                    {...field}
+                    label="Phone Number"
+                    placeholder="Enter your phone number"
+                    error={error?.message}
+                  />
                 )}
-              </div>
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2 font-bold">Email</label>
+              />
+            </Grid.Col>
+            <Grid.Col span={6}>
               <Controller
                 name="email"
                 control={control}
-                rules={{ required: "Email is required" }}
-                render={({ field }) => (
-                  <input
-                    type="email"
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
                     {...field}
-                    className="border border-green-500  rounded focus:border-transparent"
+                    label="Email"
+                    placeholder="Enter your email address"
+                    error={error?.message}
                   />
                 )}
               />
-              {errors.email && (
-                <p className="text-green-500 text-sm font-bold italic">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-        {step === 2 && (
-          <div className="flex flex-col mb-4">
-            <div className="flex sm:flex-row flex-col justify-between">
-              <div className="flex flex-col  mb-4">
-                <label className="mb-2 font-bold">Current Location</label>
-                <Controller
-                  name="fromLocation"
-                  control={control}
-                  rules={{ required: "Current Location is required" }}
-                  render={({ field }) => (
-                    <input
-                      type="text"
-                      {...field}
-                      className="border border-green-500 rounded focus:border-transparent"
-                    />
-                  )}
-                />
-                {errors.fromLocation && (
-                  <p className="text-green-500 text-sm font-bold italic">
-                    {errors.fromLocation.message}
-                  </p>
-                )}
-              </div>
-              <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold">Destination</label>
-                <Controller
-                  name="toLocation"
-                  control={control}
-                  rules={{ required: "Destination is required" }}
-                  render={({ field }) => (
-                    <input
-                      type="text"
-                      {...field}
-                      className="border border-green-500 rounded focus:border-transparent"
-                    />
-                  )}
-                />
-                {errors.toLocation && (
-                  <p className="text-green-500 text-sm font-bold italic">
-                    {errors.toLocation.message}
-                  </p>
-                )}
-              </div>
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2 font-bold">Driver Name</label>
+            </Grid.Col>
+          </Grid>
+        </div>
+      ),
+    },
+    {
+      label: "Trip Details",
+      fields: ["pickup", "dropoff", "time", "vehicleType", "region", "tripType", "proceedWithPayment"], // Added checkbox field
+      component: (
+        <div>
+          <div className="bg-green-500 p-4 text-white font-bold">Booking Information</div>
+          <Grid>
+            <Grid.Col span={6}>
               <Controller
-                name="driverName"
+                name="time"
                 control={control}
-                rules={{ required: "Driver Name is required" }}
-                render={({ field }) => (
-                  <input
-                    type="text"
+                render={({ field, fieldState: { error } }) => (
+                  <TimeInput
                     {...field}
-                    className="border border-green-500 rounded focus:border-transparent"
+                    label="Time"
+                    placeholder="Select time"
+                    error={error?.message}
                   />
                 )}
               />
-              {errors.driverName && (
-                <p className="text-green-500 text-sm font-bold italic">
-                  {errors.driverName.message}
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-        {step === 3 && (
-          <div className="flex flex-col mb-4">
-            <div className="flex flex-col mb-4">
-              <label className="mb-2 font-bold">Region</label>
+            </Grid.Col>
+            <Grid.Col span={6}>
+              <Controller
+                name="vehicleType"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <Select
+                    label="Vehicle Type"
+                    placeholder="Select vehicle type"
+                    data={vehicleTypes}
+                    value={field.value}
+                    onChange={field.onChange}
+                    error={error?.message}
+                  />
+                )}
+              />
+            </Grid.Col>
+            <Grid.Col span={6}>
               <Controller
                 name="region"
                 control={control}
-                rules={{ required: "Region is required" }}
-                render={({ field }) => (
-                  <select
-                    {...field}
-                    className="border text-sm rounded border-green-500 text-black focus:border-transparent"
-                  >
-                    <option value="kigali">Kigali</option>
-                    <option value="upcountry">Upcountry</option>
-                  </select>
+                render={({ field, fieldState: { error } }) => (
+                  <Select
+                    label="Region"
+                    placeholder="Select region"
+                    data={regions}
+                    value={field.value}
+                    onChange={field.onChange}
+                    error={error?.message}
+                  />
                 )}
               />
-              {errors.region && (
-                <p className="text-green-500 text-sm font-bold italic">
-                  {errors.region.message}
-                </p>
-              )}
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2 font-bold">Trip Type</label>
+            </Grid.Col>
+            <Grid.Col span={6}>
               <Controller
                 name="tripType"
                 control={control}
-                rules={{ required: "Trip Type is required" }}
-                render={({ field }) => (
-                  <select
+                render={({ field, fieldState: { error } }) => (
+                  <Select
+                    label="Trip Type"
+                    placeholder="Select trip type"
+                    data={tripTypes}
                     {...field}
-                    className="border rounded border-green-500 sm:text-2xl  text-sm text-black focus:border-transparent"
-                  >
-                    <option value="single">Single</option>
-                    <option value="roundtrip">Roundtrip</option>
-                    <option value="day">Day (8 hours)</option>
-                    <option value="night">Night (8 hours)</option>
-                    <option value="fullday">Full Day (24 hours)</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="other">Other</option>
-                  </select>
+                    error={error?.message}
+                  />
                 )}
               />
-              {errors.tripType && (
-                <p className="text-green-500 text-sm font-bold italic">
-                  {errors.tripType.message}
-                </p>
-              )}
-            </div>
-            {formData.tripType === "other" && (
-              <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold">Number of Days</label>
-                <Controller
-                  name="numberOfDays"
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      type="number"
-                      {...field}
-                      className="border border-green-500 rounded focus:border-transparent"
-                      placeholder="Enter number of days"
-                    />
-                  )}
-                />
-              </div>
-            )}
-          </div>
-        )}
-        {step === 4 && (
-          <div className="flex flex-col mb-4">
-            <div className="mb-4">
-              <label className="mb-2 text-green-500 text-2xl font-semibold">
-                Amount to be Paid: {amount} RWF
-              </label>
-            </div>
-            <div className="flex items-center mb-4">
+            </Grid.Col>
+            <Grid.Col span={6}>
               <Controller
-                name="confirmPayment"
+                name="pickup"
                 control={control}
-                rules={{ required: "You must confirm payment" }}
-                render={({ field }) => (
-                  <input type="checkbox" {...field} className="mr-2" />
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
+                    {...field}
+                    label="Pickup Location"
+                    placeholder="Enter pickup location"
+                    error={error?.message}
+                  />
                 )}
               />
-              <label className="mb-2">I confirm I am ready to pay before</label>
-            </div>
-            {errors.confirmPayment && (
-              <p className="text-green-500 text-sm font-bold italic">
-                {errors.confirmPayment.message}
-              </p>
-            )}
-          </div>
-        )}
-        <div className="flex justify-around">
-          {step > 1 && (
-            <button
-              type="button"
-              onClick={() => setStep(step - 1)}
-              className="bg-black mr-5 text-white text-lg font-semibold py-2 px-4 rounded"
-            >
-              Previous
-            </button>
+            </Grid.Col>
+            <Grid.Col span={6}>
+              <Controller
+                name="dropoff"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
+                    {...field}
+                    label="Dropoff Location"
+                    placeholder="Enter dropoff location"
+                    error={error?.message}
+                  />
+                )}
+              />
+            </Grid.Col>
+            <Grid.Col span={12}>
+              <Controller
+                name="proceedWithPayment"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <CustomCheckbox
+                    {...field}
+                    label="I agree to proceed with the payment"
+                    checked={field.value}
+                    onChange={(event) => field.onChange(event.currentTarget.checked)}
+                    onBlur={field.onBlur}
+                    name="proceedWithPayment"
+                    error={error?.message}
+                  />
+                )}
+              />
+            </Grid.Col>
+          </Grid>
+          {price && (
+            <Paper shadow="xs" p="md">
+              <div className="flex justify-between">
+                <div className="font-semibold">Estimated Price:</div>
+                <div>{price} RWF</div>
+              </div>
+            </Paper>
           )}
-          <button
-            type="button"
-            onClick={handleNext}
-            className="bg-black w-full text-white font-semibold p-2 text-lg rounded"
-          >
-            {step === 4 ? "Submit" : "Next"}
-          </button>
         </div>
-      </form>
-    </Modal>
+      ),
+    },
+  ];
+  return (
+    <div>
+      <Button onClick={open} variant='filled' color="rgb(34 197 94)" size='md' radius={`${styles.styles}`}>Book Driver</Button>
+      <Modal opened={opened} onClose={handleClose} title="Book Driver">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {steps[currentStep].component}
+          <div className="mt-4 flex justify-between">
+            {currentStep > 0 && <Button variant="outline" onClick={handlePrevious}>Previous</Button>}
+            <Button onClick={handleNext}>{currentStep < steps.length - 1 ? "Next" : "Submit"}</Button>
+          </div>
+        </form>
+      </Modal>
+    </div>
   );
 };
 
-export default BookingModal;
+export default BookDriver;
+
+interface CustomCheckboxProps {
+  label: string;
+  checked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: () => void;
+  name: string;
+  disabled?: boolean;
+  ref?: React.RefCallback<HTMLInputElement>;
+  error?: string;
+}
+
+const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ label, checked, onChange, onBlur, name, disabled, ref, error }) => {
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={onChange}
+          onBlur={onBlur}
+          name={name}
+          disabled={disabled}
+          ref={ref}
+        />
+        {label}
+      </label>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+    </div>
+  );
+};

@@ -142,8 +142,6 @@
        )}
        {isBookingModalOpen && (
          <BookingModal
-           isOpen={isBookingModalOpen}
-           onRequestClose={handleCloseModal}
          />
        )}
      </div>

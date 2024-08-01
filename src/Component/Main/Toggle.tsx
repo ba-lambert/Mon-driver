@@ -10,7 +10,7 @@
  import { Link } from "react-router-dom";
 
  const DriverRecruitmentForm = () => {
-   const [modalIsOpen, setModalIsOpen] = useState(false);
+   const [modalIsOpen] = useState(false);
 
    useEffect(() => {
      if (modalIsOpen) {
@@ -26,9 +26,6 @@
      }
    }, [modalIsOpen]);
 
-   const openModal = () => setModalIsOpen(true);
-   const closeModal = () => setModalIsOpen(false);
-
    return (
      <div className="bg-white">
        <div
@@ -37,8 +34,8 @@
        >
          <div className="absolute inset-0 bg-black opacity-20"></div>
          <div className="flex sm:flex-row flex-col-reverse">
-           <div className="relative bg-opacity-80 sm:w-full sm:max-w-2xl p-8 mt-36 italic font-sans font-semibold text-white text-lg">
-             <p className="text-3xl mb-10 not-italic text-green-500">
+           <div className="relative bg-opacity-80 sm:w-full sm:max-w-2xl p-8 mt-36 font-sans font-semibold text-white text-lg">
+             <p className="text-3xl mb-10 text-green-500">
                We prioritize your safety and comfort
              </p>
              <div className="flex sm:w-auto w-full">
@@ -51,24 +48,20 @@
                      handle the driving.
                    </p>
                  </div>
-                 <div className="mt-10 font-sans not-italic">
+                 <div className="mt-10 font-sans not-italic flex flex-row space-x-4">
                    <Link
                      to="/ContactUsPage"
-                     className="bg-green-500 text-white font-semibold py-2 mb-5 ml-5 px-4 rounded mt-4 hover:bg-white hover:text-green-500"
+                     className="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-white hover:text-green-500"
                    >
                      Contact us
                    </Link>
-                   <button
-                     onClick={openModal}
-                     className="bg-green-500 text-white font-semibold py-2 mb-5 ml-5 px-4 rounded mt-4 hover:bg-white hover:text-green-500"
-                   >
-                     Book Driver
-                   </button>
+                   
+                   <BookingModal />
                  </div>
                </div>
              </div>
            </div>
-           <div>
+           <div className="hidden sm:block">
              <img src={ho} alt="" className="" />
            </div>
          </div>
@@ -122,7 +115,6 @@
            <img src={ch} className="h-72 w-72 rounded-full object-cover" />
          </div>
        </div>
-       <BookingModal isOpen={modalIsOpen} onRequestClose={closeModal} />
      </div>
    );
  };
