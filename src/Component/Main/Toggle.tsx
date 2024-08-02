@@ -15,7 +15,7 @@
    useEffect(() => {
      if (modalIsOpen) {
        document.body.classList.add("no-scroll");
-       // Create an overlay
+
        const overlay = document.createElement("div");
        overlay.className = "fixed-background";
        document.body.appendChild(overlay);
@@ -27,13 +27,13 @@
    }, [modalIsOpen]);
 
    return (
-     <div className="bg-white">
+     <div className="">
        <div
          className="relative min-h-screen bg-cover bg-center flex flex-col"
-         style={{ backgroundImage: `url(${ch23})` }}
+         // style={{ backgroundImage: `url(${ch23})` }}
        >
-         <div className="absolute inset-0 bg-black opacity-20"></div>
-         <div className="flex sm:flex-row flex-col-reverse">
+         <div className="absolute inset-0 bg-black opacity-20 "></div>
+         <div className="flex sm:flex-row flex-col max-w-screen-lg mx-auto">
            <div className="relative bg-opacity-80 sm:w-full sm:max-w-2xl p-8 mt-36 font-sans font-semibold text-white text-lg">
              <p className="text-3xl mb-10 text-green-500">
                We prioritize your safety and comfort
@@ -50,12 +50,12 @@
                  </div>
                  <div className="mt-10 font-sans not-italic flex flex-row space-x-4">
                    <Link
-                     to="/ContactUsPage"
+                     to="/contactus"
                      className="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-white hover:text-green-500"
                    >
                      Contact us
                    </Link>
-                   
+
                    <BookingModal />
                  </div>
                </div>
@@ -67,7 +67,7 @@
          </div>
        </div>
        <div className="w-full grid md:grid-cols-4 grid-cols-1 bg-emerald-100 bg-opacity-90 p-8 text-gray-500 font-sans rounded-lg shadow-lg">
-         <div className="flex flex-col">
+         <div className="flex flex-col mx-auto">
            <img
              src={driverImage}
              alt="Driver"

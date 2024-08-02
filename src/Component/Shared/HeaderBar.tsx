@@ -4,7 +4,7 @@ import BookDriver from "../Main/BookingModal";
 
  const HeaderBar: React.FC = () => {
    return (
-     <nav className="flex flex-row sm:flex-row  sm:px-24 h-auto  sm:h-20 items-center justify-between ml-0 p-4 sm:p-0">
+     <nav className="flex flex-row sm:flex-row  sm:px-24 h-auto  sm:h-16 items-center justify-between ml-0 p-4 sm:p-0">
        <img
          src={img1}
          alt="logo"

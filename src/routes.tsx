@@ -1,7 +1,6 @@
   import { useRoutes } from "react-router-dom";
   import Mainlayout from "./Layout/Mainlayout";
   import PageTitle from "./Component/Shared/PageTitle";
-  import HomePage from "./pages/main/HomePage";
   import AboutPage from "./pages/main/About";
   import NotFound from "./pages/NotFound";
   import SignIn from "./pages/Auth/SignIn";
@@ -19,6 +18,7 @@
   import ContactUsPage from "./Component/Main/ContactUsPage";
   import LoginLayout from "./Layout/LoginLayout";
   import LoginPage from "./Component/Main/LogIn";
+  import Aboutus from "./Component/Main/Aboutus";
 
   const AppRoutes = () => {
     const routes = useRoutes([
@@ -31,7 +31,7 @@
             element: (
               <>
                 <PageTitle title="Mon-Chaufferurs | Home page" />
-                <HomePage />
+                <LandingPage />
               </>
             ),
           },
@@ -47,10 +47,10 @@
           {
             path: "Monchauffeur",
             element: (
-                <>
-                  <PageTitle title="Mon-Chaufferurs | Monchauffeur" />
-                  <Monchauffeur />
-                </>
+              <>
+                <PageTitle title="Mon-Chaufferurs | Monchauffeur" />
+                <Monchauffeur />
+              </>
             ),
           },
           {
@@ -72,21 +72,11 @@
             ),
           },
           {
-            path: "ContactUsPage",
+            path: "contactus",
             element: (
               <>
                 <PageTitle title="Mon-Chaufferurs | ContactUsPage" />
                 <ContactUsPage />
-              </>
-            ),
-          },
-
-          {
-            path: "Landingpage",
-            element: (
-              <>
-                <PageTitle title="Mon-Chauffeurs | LandingPage" />
-                <LandingPage />
               </>
             ),
           },
@@ -99,6 +89,16 @@
               </>
             ),
           },
+          {
+            path: "Aboutus",
+            element: (
+              <>
+                <PageTitle title="Mon-Chauffeurs | Aboutus" />
+                <Aboutus />
+              </>
+            ),
+          },
+
           {
             path: "*",
             element: (
