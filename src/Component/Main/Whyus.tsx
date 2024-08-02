@@ -47,7 +47,7 @@
    }, []);
 
    const openModal = () => setModalIsOpen(true);
-   const closeModal = () => setModalIsOpen(false);
+   // const closeModal = () => setModalIsOpen(false);
 
    const handleRatingClick = (index: number, rating: number) => {
      const newRatings = [...ratings];

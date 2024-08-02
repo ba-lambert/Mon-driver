@@ -36,7 +36,7 @@
     };
 
     return (
-      <div className="min-h-screen bg-customGreen bg-opacity-80 p-6  mb-10 bg-cover bg-center">
+      <div className="min-h-screen max-w-screen-lg mx-auto">
         <div className="flex sm:flex-row flex-wrap justify-between mt-10 mb-10 items-start sm:ml-6 gap-10">
           <div className="w-full lg:w-1/3 sm:mt-28">
             <p className="text-emerald-900 font-semibold italic sm:ml-0 ml-20 text-2xl">

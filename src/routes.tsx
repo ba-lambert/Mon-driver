@@ -1,7 +1,6 @@
   import { useRoutes } from "react-router-dom";
   import Mainlayout from "./Layout/Mainlayout";
   import PageTitle from "./Component/Shared/PageTitle";
-  import HomePage from "./pages/main/HomePage";
   import AboutPage from "./pages/main/About";
   import NotFound from "./pages/NotFound";
   import SignIn from "./pages/Auth/SignIn";
@@ -32,7 +31,7 @@
             element: (
               <>
                 <PageTitle title="Mon-Chaufferurs | Home page" />
-                <HomePage />
+                <LandingPage />
               </>
             ),
           },
@@ -73,21 +72,11 @@
             ),
           },
           {
-            path: "ContactUsPage",
+            path: "contactus",
             element: (
               <>
                 <PageTitle title="Mon-Chaufferurs | ContactUsPage" />
                 <ContactUsPage />
-              </>
-            ),
-          },
-
-          {
-            path: "Landingpage",
-            element: (
-              <>
-                <PageTitle title="Mon-Chauffeurs | LandingPage" />
-                <LandingPage />
               </>
             ),
           },

@@ -30,22 +30,22 @@ const SubNavBar: React.FC = () => {
           <ul className="hidden sm:flex flex-row text-white">
             <div className="flex sm:flex-row sm:space-x-5 space-x-3">
               <li className="ml-3">
-                <Link to="/Landingpage">
+                <Link to="/">
                   <button className="sm:text-md font-semibold">Home</button>
                 </Link>
               </li>
 
               <li>
-                <Link to="/Driverpage">
+                <Link to="/aboutus">
                   <button className="text-sm sm:text-md font-semibold">
-                    Drivers
+                    About
                   </button>
                 </Link>
               </li>
             </div>
             <div className="flex sm:flex-row sm:space-x-5 space-x-3">
               <li>
-                <Link to="/ContactUsPage">
+                <Link to="/contactus">
                   <button className="text-sm sm:text-md font-semibold sm:left-0 sm:w-24">
                     Contact Us
                   </button>
@@ -53,7 +53,7 @@ const SubNavBar: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/LogIn"
+                  to="/login"
                   className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
                 >
                   Log In
@@ -89,21 +89,21 @@ const SubNavBar: React.FC = () => {
               </button>
               <ul className="flex flex-col space-y-4 text-center">
                 <li>
-                  <Link to="/Landingpage" onClick={handleMenuItemClick}>
+                  <Link to="/" onClick={handleMenuItemClick}>
                     <button className="text-md sm:text-md font-semibold">
                       Home
                     </button>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Driverpage" onClick={handleMenuItemClick}>
+                  <Link to="/aboutus" onClick={handleMenuItemClick}>
                     <button className="text-md sm:text-md font-semibold">
-                      Drivers
+                      about
                     </button>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/ContactUsPage" onClick={handleMenuItemClick}>
+                  <Link to="/contactus" onClick={handleMenuItemClick}>
                     <button className="text-md sm:text-md font-semibold w-20 sm:w-24">
                       Contact Us
                     </button>
