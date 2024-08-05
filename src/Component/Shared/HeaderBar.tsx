@@ -1,7 +1,7 @@
 import React from "react";
-import img1 from "../../assets/images/Mon Chauffeur Logo-02.png";
+import img1 from "../../assets/Web Assets/MonChauffeur-06.png";
 import BookDriver from "../Main/BookingModal";
-import tollFreeIc from '../../assets/images/ic_tollfree.jpg';
+import tollFreeIc from '../../assets/Web Assets/MonChauffeur-12.png';
 
 const HeaderBar: React.FC = () => {
     return (
@@ -10,10 +10,10 @@ const HeaderBar: React.FC = () => {
             <img
                 src={img1}
                 alt="logo"
-                className="w-40 h-auto sm:w-auto sm:h-[70px] mb-4 mr-2  sm:mb-0"
+                className="w-40 h-auto sm:w-auto sm:h-10 mb-4 mr-2  sm:mb-0"
             />
             <div className='flex flex-row justify-center items-center relative'>
-                <img src={tollFreeIc} alt='call center' className='w-16'/>
+                <img src={tollFreeIc} alt='call center' className='w-8'/>
                 <p className='text-customGreen text-xs sm:text-xl font-semibold'>6200</p>
             </div>
             <div className="flex flex-row items-center justify-center space-x-2 sm:space-x-5">

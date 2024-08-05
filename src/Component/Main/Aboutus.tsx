@@ -7,6 +7,11 @@ import p3 from "../../assets/images/ch3.jpg";
 import p from "../../assets/images/p1.jpeg";
 import p4 from "../../assets/images/p2.jpeg";
 import p5 from "../../assets/images/p3.jpg";
+import customerFocus from '../../assets/Web Assets/MonChauffeur-13.png'
+import integrity from '../../assets/Web Assets/MonChauffeur-05.png'
+import reliablility from '../../assets/Web Assets/MonChauffeur-07.png'
+import professionalism from '../../assets/Web Assets/MonChauffeur-09.png'
+import backImage from '../../assets/Web Assets/MonChauffeur-03.png'
 import {FaHouseCircleCheck} from "react-icons/fa6";
 
 interface TeamMember {
@@ -89,7 +94,7 @@ const testimonials: Testimonial[] = [
 const AboutUsPage: React.FC = () => {
     const [expandedIndex, setExpandedIndex] = useState(null);
 
-    const handleToggle = (index:any) => {
+    const handleToggle = (index: any) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
     const processes = [
@@ -118,27 +123,27 @@ const AboutUsPage: React.FC = () => {
         {
             title: 'Customer Focus',
             description: 'Prioritizing the needs and satisfaction of our clients. We are committed to understanding and exceeding client expectations, providing personalized service that caters to individual needs.',
-            Icon: <FaHouseCircleCheck />
+            Icon: customerFocus
         },
         {
             title: 'Integrity',
             description: 'Conducting our business with honesty and transparency. We believe in building trust with our clients through ethical practices and open communication.',
-            Icon: <FaHouseCircleCheck />
+            Icon: integrity
         },
         {
             title: 'Reliability',
             description: 'Consistently delivering dependable and punctual services. Our clients can count on us to be there when they need us, providing consistent and reliable transportation solutions.',
-            Icon: <FaHouseCircleCheck />
+            Icon: reliablility
         },
         {
             title: 'Safety',
             description: 'Ensuring the safety and security of our clients, their belongings, and their vehicles at all times. We prioritize safety in all aspects of our operations, from vehicle maintenance to driver training and emergency preparedness.',
-            Icon: <FaHouseCircleCheck />
+            Icon: reliablility
         },
         {
             title: 'Professionalism',
             description: 'Maintaining high standards of service and conduct. Our team of drivers and staff are trained to uphold the highest levels of professionalism, ensuring a positive and respectful experience for our clients.',
-            Icon: <FaHouseCircleCheck />
+            Icon: professionalism
         }
     ];
     return (
@@ -171,13 +176,23 @@ const AboutUsPage: React.FC = () => {
                             purposes
                         </p>
                     </div>
-                    <div className='flex flex-col text-start sm:w-1/2 p-5'>
-                        <p className='text-3xl text-gray-500 '>We not only drive people, we also drive safety and
-                            comfort in your everyday life. </p>
-                        <p>A great
-                            company matters if the wish is a great journey, Select from our diverse friendly drivers to
-                            get your great comnpanion
-                        </p>
+                    <div className='flex flex-col justify-center items-center text-start sm:w-1/2 p-5'>
+                        <motion.div
+                            className='flex flex-col p-5 w-72 overlay-background'
+                            style={{
+                                backgroundImage: `url(${backImage})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        >
+                            <p className='text-3xl text-gray-500 bg-opacity-75 bg-white p-2'>
+                                We not only drive people, we also drive safety and comfort in your everyday life.
+                            </p>
+                            <p className='bg-opacity-75 bg-white p-2'>
+                                A great company matters if the wish is a great journey, Select from our diverse friendly
+                                drivers to get your great companion.
+                            </p>
+                        </motion.div>
                     </div>
                 </div>
             </motion.div>
@@ -279,7 +294,7 @@ const AboutUsPage: React.FC = () => {
                             <h3 className="text-md font-semibold mb-2 text-customGreen">{value.title}</h3>
                             <div
                                 className="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                                {value.Icon}
+                                <img src={value.Icon} alt={value.title}/>
                             </div>
                             <div>
                                 <p className='text-xs'>{value.description}</p>

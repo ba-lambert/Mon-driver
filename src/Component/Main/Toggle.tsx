@@ -5,7 +5,7 @@ import ch2 from "../../assets/images/f.jpg";
 // import ch from "../../assets/images/4.jpg";
 import driverImage from "../../assets/images/ch1.jpg";
 import driverImage1 from "../../assets/images/ch2.jpg";
-import ho from "../../assets/images/ho.webp";
+import ho from "../../assets/Web Assets/ADS2-02.png";
 // import lg from "../../assets/images/lg.png";
 import { Link } from "react-router-dom";
 
@@ -32,12 +32,12 @@ const DriverRecruitmentForm = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative min-h-screen bg-cover bg-center flex flex-col"
+            className="relative sm:min-h-screen bg-cover bg-center flex flex-col"
         >
           <div className="absolute inset-0 bg-black opacity-20"></div>
-          <div className="flex sm:flex-row flex-col max-w-screen-lg mx-auto">
-            <div className="relative bg-opacity-80 sm:w-full sm:max-w-2xl p-8 mt-36 font-sans font-semibold text-white text-lg">
-              <p className="text-3xl mb-10 text-green-500">
+          <div className="flex sm:flex-row flex-col max-w-screen-lg mx-auto w-full">
+            <div className="relative bg-opacity-80 sm:w-1/2 sm:max-w-2xl p-8 items-center flex flex-col justify-center font-sans font-semibold text-white text-lg">
+              <p className="text-3xl mb-5 text-green-500">
                 We prioritize your safety and comfort
               </p>
               <div className="flex sm:w-auto w-full">
@@ -62,7 +62,7 @@ const DriverRecruitmentForm = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden sm:block">
+            <div className="hidden sm:block w-1/2">
               <img src={ho} alt="" className="" />
             </div>
           </div>
