@@ -16,7 +16,7 @@ const SubNavBar: React.FC = () => {
 
   return (
     <div className="flex justify-between sm:justify-end h-auto bg-customGreen bg-opacity-95 bg-cover bg-center">
-      <div className="flex justify-between sm:justify-end h-14 w-full bg-cover bg-center relative">
+      <div className="flex justify-between sm:justify-end h-14 max-w-screen-lg w-full bg-cover bg-center mx-auto relative">
         {/* <img src={driverImage2} className="hidden sm:block sm:absolute top-0 left-0 sm:ml-10 w-20 h-20" /> */}
         <div className="flex justify-between items-center space-x-6 h-full px-4 w-full">
           <div className="flex ml-auto items-center"></div>
@@ -63,7 +63,7 @@ const SubNavBar: React.FC = () => {
           </ul>
 
           {/* Other Elements */}
-          <div className="flex items-center justify-center space-x-4">
+          <div className="flex items-center justify-center space-x-4 hidden">
             <button>
               <FiUser size={25} color="white" className="" />
             </button>

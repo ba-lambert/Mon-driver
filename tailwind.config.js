@@ -5,13 +5,13 @@ export default {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Maven Pro', 'sans-serif'],
+      },
       colors: {
         customGreen: "#17AB72",
         customBlue: "#05257E",
         lightBlue: "#F1F9FF",
-      },
-      fontFamily: {
-        sans: ["Poppins", "sans-serif"],
       },
       screens: {
         md: "1024px", // You can adjust the value as needed

@@ -334,7 +334,7 @@ const BookDriver: React.FC<BookDriverProps> = (styles) => {
   ];
   return (
     <div>
-      <Button onClick={open} variant='filled' color="rgb(34 197 94)" size='md' radius={`${styles.styles}`}>Book Driver</Button>
+      <Button onClick={open} variant='outline' color="rgb(34 197 94)" size='md' radius={`${styles.styles}`}>Book Driver</Button>
       <Modal opened={opened} onClose={handleClose} title="Book Driver">
         <form onSubmit={handleSubmit(onSubmit)}>
           {steps[currentStep].component}

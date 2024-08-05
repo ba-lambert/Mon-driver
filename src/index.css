@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    @apply font-sans;
+}
+
+body {
+    @apply font-sans;
+}
+
 /* src/index.css */
 
 .custom-scrollbar::-webkit-scrollbar {

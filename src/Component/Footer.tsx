@@ -11,13 +11,14 @@ const Footer = () => {
               placeholder="Your e-mail"
               className="bg-transparent border-b border-white flex-1 py-2 px-3 text-white placeholder-white outline-none"
             />
-            <button className="bg-blue-800 text-white py-2 px-4 ml-4 rounded">
+            <button className="bg-blue-800 text-white py-2 px-4 rounded">
               Send
             </button>
           </div>
         </div>
-        <footer className="bg-blue-900 flex w-full sm:mt-0 mt-4 text-white pt-28 pb-6">
-          <div className="container mx-auto px-4 ml-12">
+          <div className='bg-blue-900 flex w-full'>
+        <footer className="max-w-screen-lg mx-auto sm:mt-0 mt-4 text-white pt-28 pb-6">
+          <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div className="">
                 <h4 className="text-green-400 mb-4">Important links:</h4>
@@ -104,6 +105,7 @@ const Footer = () => {
             </div>
           </div>
         </footer>
+          </div>
       </div>
     );
 };
