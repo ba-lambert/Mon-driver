@@ -346,7 +346,7 @@ const AboutUsPage: React.FC = () => {
                 <h2 className="text-3xl font-bold text-center text-customGreen">
                     Testimonials
                 </h2>
-                <div className="flex flex-row overflow-x-scroll scrollbar-none gap-6">
+                <div className="flex flex-col sm:flex-row overflow-x-scroll scrollbar-none gap-6">
                     {testimonials.map((testimonial) => (
                         <motion.div
                             key={testimonial.id}

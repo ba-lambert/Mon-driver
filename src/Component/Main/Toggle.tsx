@@ -67,21 +67,21 @@ const DriverRecruitmentForm = () => {
             </div>
           </div>
         </motion.div>
-        <div className="w-full flex flex-col sm:flex-row justify-center items-center sm:py-10 bg-emerald-100 bg-opacity-90 p-8 text-gray-500 font-sans rounded-lg shadow-lg">
+        <div className="w-full flex flex-col sm:flex-row justify-center gap-10 items-center sm:items-start  sm:py-10 bg-emerald-100 bg-opacity-90 p-8 text-gray-500 font-sans rounded-t-lg shadow-lg">
           <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col mx-auto"
+              className="flex flex-col"
           >
             <img
                 src={driverImage}
                 alt="Driver"
-                className="ring-0 ring-offset-customGreen ring-offset-[5px] rounded-full object-cover h-32 w-32 sm:mb-0 sm:mr-4"
+                className="ring-0 ring-offset-customGreen ring-offset-[5px] rounded-full object-cover h-32 w-32"
             />
-            <div className="mt-10">
+            <div className="mt-10 w-52">
               <p className="text-lg font-bold">Trust</p>
-              <p className="text-md">
+              <p className="text-sm text-start">
                 With our fleet of trained, verified, and trusted drivers, we make
                 the drive better and safer for you and your family.
               </p>
@@ -91,16 +91,16 @@ const DriverRecruitmentForm = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col ml-7"
+              className="flex flex-col w-52"
           >
             <img
                 src={driverImage1}
                 alt="Driver"
-                className="w-32 h-32 rounded-full ring-0 ring-offset-customGreen ring-offset-[5px] object-cover sm:mb-0 sm:mr-4"
+                className="w-32 h-32 rounded-full ring-0 ring-offset-customGreen ring-offset-[5px] object-cover"
             />
             <div className="mt-10">
               <p className="text-lg font-bold">Secure</p>
-              <p className="text-md">
+              <p className="text-s  text-start">
                 DriveU Secure helps you insure your drives from vehicle damages
                 and personal injuries, while we insure our drivers for all trips.
               </p>
@@ -110,7 +110,7 @@ const DriverRecruitmentForm = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col ml-7"
+              className="flex flex-col w-52"
           >
             <img
                 src={ch2}
@@ -119,7 +119,7 @@ const DriverRecruitmentForm = () => {
             />
             <div className="mt-10">
               <p className="text-md font-bold">Versatile</p>
-              <p className="text-md">
+              <p className="text-sm text-start">
                 Book a driver for daily office commutes, mid-day shopping,
                 night-outs, airport transfers, or weekend getaways with our hourly
                 packages.
