@@ -7,6 +7,10 @@ import p3 from "../../assets/images/ch3.jpg";
 import p from "../../assets/images/p1.jpeg";
 import p4 from "../../assets/images/p2.jpeg";
 import p5 from "../../assets/images/p3.jpg";
+import customerFocus from '../../assets/Web Assets/MonChauffeur-13.png'
+import integrity from '../../assets/Web Assets/MonChauffeur-05.png'
+import reliablility from '../../assets/Web Assets/MonChauffeur-07.png'
+import professionalism from '../../assets/Web Assets/MonChauffeur-09.png'
 import {FaHouseCircleCheck} from "react-icons/fa6";
 
 interface TeamMember {
@@ -118,27 +122,27 @@ const AboutUsPage: React.FC = () => {
         {
             title: 'Customer Focus',
             description: 'Prioritizing the needs and satisfaction of our clients. We are committed to understanding and exceeding client expectations, providing personalized service that caters to individual needs.',
-            Icon: <FaHouseCircleCheck />
+            Icon: customerFocus
         },
         {
             title: 'Integrity',
             description: 'Conducting our business with honesty and transparency. We believe in building trust with our clients through ethical practices and open communication.',
-            Icon: <FaHouseCircleCheck />
+            Icon: integrity
         },
         {
             title: 'Reliability',
             description: 'Consistently delivering dependable and punctual services. Our clients can count on us to be there when they need us, providing consistent and reliable transportation solutions.',
-            Icon: <FaHouseCircleCheck />
+            Icon: reliablility
         },
         {
             title: 'Safety',
             description: 'Ensuring the safety and security of our clients, their belongings, and their vehicles at all times. We prioritize safety in all aspects of our operations, from vehicle maintenance to driver training and emergency preparedness.',
-            Icon: <FaHouseCircleCheck />
+            Icon: reliablility
         },
         {
             title: 'Professionalism',
             description: 'Maintaining high standards of service and conduct. Our team of drivers and staff are trained to uphold the highest levels of professionalism, ensuring a positive and respectful experience for our clients.',
-            Icon: <FaHouseCircleCheck />
+            Icon: professionalism
         }
     ];
     return (
@@ -279,7 +283,7 @@ const AboutUsPage: React.FC = () => {
                             <h3 className="text-md font-semibold mb-2 text-customGreen">{value.title}</h3>
                             <div
                                 className="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                                {value.Icon}
+                                <img src={value.Icon} alt={value.title} />
                             </div>
                             <div>
                                 <p className='text-xs'>{value.description}</p>
