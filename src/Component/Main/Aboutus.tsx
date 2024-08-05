@@ -11,6 +11,7 @@ import customerFocus from '../../assets/Web Assets/MonChauffeur-13.png'
 import integrity from '../../assets/Web Assets/MonChauffeur-05.png'
 import reliablility from '../../assets/Web Assets/MonChauffeur-07.png'
 import professionalism from '../../assets/Web Assets/MonChauffeur-09.png'
+import backImage from '../../assets/Web Assets/MonChauffeur-03.png'
 import {FaHouseCircleCheck} from "react-icons/fa6";
 
 interface TeamMember {
@@ -93,7 +94,7 @@ const testimonials: Testimonial[] = [
 const AboutUsPage: React.FC = () => {
     const [expandedIndex, setExpandedIndex] = useState(null);
 
-    const handleToggle = (index:any) => {
+    const handleToggle = (index: any) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
     const processes = [
@@ -175,13 +176,23 @@ const AboutUsPage: React.FC = () => {
                             purposes
                         </p>
                     </div>
-                    <div className='flex flex-col text-start sm:w-1/2 p-5'>
-                        <p className='text-3xl text-gray-500 '>We not only drive people, we also drive safety and
-                            comfort in your everyday life. </p>
-                        <p>A great
-                            company matters if the wish is a great journey, Select from our diverse friendly drivers to
-                            get your great comnpanion
-                        </p>
+                    <div className='flex flex-col justify-center items-center text-start sm:w-1/2 p-5'>
+                        <motion.div
+                            className='flex flex-col p-5 w-72 overlay-background'
+                            style={{
+                                backgroundImage: `url(${backImage})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        >
+                            <p className='text-3xl text-gray-500 bg-opacity-75 bg-white p-2'>
+                                We not only drive people, we also drive safety and comfort in your everyday life.
+                            </p>
+                            <p className='bg-opacity-75 bg-white p-2'>
+                                A great company matters if the wish is a great journey, Select from our diverse friendly
+                                drivers to get your great companion.
+                            </p>
+                        </motion.div>
                     </div>
                 </div>
             </motion.div>
@@ -283,7 +294,7 @@ const AboutUsPage: React.FC = () => {
                             <h3 className="text-md font-semibold mb-2 text-customGreen">{value.title}</h3>
                             <div
                                 className="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                                <img src={value.Icon} alt={value.title} />
+                                <img src={value.Icon} alt={value.title}/>
                             </div>
                             <div>
                                 <p className='text-xs'>{value.description}</p>
