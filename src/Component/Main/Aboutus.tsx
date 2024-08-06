@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {motion} from "framer-motion";
 import staffImage from "../../assets/images/4.jpg";
 import p1 from "../../assets/images/ch1.jpg";
@@ -13,7 +13,6 @@ import reliablility from '../../assets/Web Assets/MonChauffeur-07.png'
 import professionalism from '../../assets/Web Assets/MonChauffeur-09.png'
 import backImage from '../../assets/images/web1-04.png'
 import {FaHouseCircleCheck} from "react-icons/fa6";
-import { FaRegStar } from "react-icons/fa6";
 
 interface TeamMember {
     id: number;
@@ -93,11 +92,11 @@ const testimonials: Testimonial[] = [
 ];
 
 const AboutUsPage: React.FC = () => {
-    const [expandedIndex, setExpandedIndex] = useState(null);
+    // const [expandedIndex, setExpandedIndex] = useState(null);
 
-    const handleToggle = (index: any) => {
-        setExpandedIndex(expandedIndex === index ? null : index);
-    };
+    // const handleToggle = (index: any) => {
+    //     setExpandedIndex(expandedIndex === index ? null : index);
+    // };
     const processes = [
         {
             title: 'Recruitment',

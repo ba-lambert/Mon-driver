@@ -11,13 +11,18 @@ import "react-toastify/dist/ReactToastify.css";
 import '@mantine/dates/styles.css';
 import {Provider} from "react-redux";
 import store from './redux/store.ts';
+import {createTheme} from "@mantine/core";
 
+
+const theme = createTheme({
+    fontFamily:'Maven Pro,sans-serif',
+})
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Provider store={store}>
         <BrowserRouter>
                 <ThemeProvider>
-                    <MantineProvider>
+                    <MantineProvider theme={theme}>
                         <ToastContainer />
                         <App />
                     </MantineProvider>

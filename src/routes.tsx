@@ -19,6 +19,7 @@
   import LoginLayout from "./Layout/LoginLayout";
   import LoginPage from "./Component/Main/LogIn";
   import Aboutus from "./Component/Main/Aboutus";
+  import PaymentConfimation from "./pages/main/PaymentConfimation.tsx";
 
   const AppRoutes = () => {
     const routes = useRoutes([
@@ -95,6 +96,15 @@
               <>
                 <PageTitle title="Mon-Chauffeurs | Aboutus" />
                 <Aboutus />
+              </>
+            ),
+          },
+          {
+            path: "booking/confirmation",
+            element: (
+              <>
+                <PageTitle title="Mon-Chauffeurs | Booking | Confirmation" />
+                <PaymentConfimation />
               </>
             ),
           },
