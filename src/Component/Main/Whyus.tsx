@@ -102,7 +102,7 @@ const Whyus: React.FC = () => {
                   </div>
               ))}
             </div>
-            <p className="font-bold absolute  sm:text-4xl text-3xl text-green-500">
+            <p className="font-bold absolute  w-full pt-24 pl-8 sm:text-4xl text-3xl text-green-500">
               GERAYO AMAHORO
             </p>
             <img
