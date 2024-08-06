@@ -19,6 +19,7 @@
   import LoginLayout from "./Layout/LoginLayout";
   import LoginPage from "./Component/Main/LogIn";
   import Aboutus from "./Component/Main/Aboutus";
+  import BookingConfirmation from "./Component/Main/Bookingcomfirmation";
 
   const AppRoutes = () => {
     const routes = useRoutes([
@@ -80,6 +81,17 @@
               </>
             ),
           },
+
+          {
+            path: "booking",
+            element: (
+              <>
+                <PageTitle title="Mon-Chaufferurs | comfirmbooking" />
+                <BookingConfirmation />
+              </>
+            ),
+          },
+
           {
             path: "BookingPage",
             element: (

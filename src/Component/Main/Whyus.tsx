@@ -71,7 +71,7 @@ const Whyus: React.FC = () => {
   ];
 
   return (
-      <div className="flex flex-col lg:flex-row justify-center items-center p-6 mt-3 sm:w-full sm:w-96">
+      <div className="flex flex-col lg:flex-row justify-center items-center p-6 mt-3 sm:w-full w-96">
         <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ const Whyus: React.FC = () => {
                   </div>
               ))}
             </div>
-            <p className="font-bold absolute  w-full pt-24 pl-8 sm:text-4xl text-3xl text-green-500">
+            <p className="font-bold absolute  w-full pt-24 pl-10 sm:text-4xl text-3xl text-green-500">
               GERAYO AMAHORO
             </p>
             <img
