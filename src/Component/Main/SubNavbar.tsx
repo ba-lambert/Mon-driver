@@ -16,7 +16,7 @@ const SubNavBar: React.FC = () => {
 
   return (
     <div className="flex justify-between sm:justify-end h-auto bg-customGreen bg-opacity-95 bg-cover bg-center">
-      <div className="flex justify-between sm:justify-end h-14 w-full bg-cover bg-center relative">
+      <div className="flex justify-between sm:justify-end h-14 max-w-screen-lg w-full bg-cover bg-center mx-auto relative">
         {/* <img src={driverImage2} className="hidden sm:block sm:absolute top-0 left-0 sm:ml-10 w-20 h-20" /> */}
         <div className="flex justify-between items-center space-x-6 h-full px-4 w-full">
           <div className="flex ml-auto items-center"></div>
@@ -59,11 +59,19 @@ const SubNavBar: React.FC = () => {
                   Log In
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/booking"
+                  className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
+                >
+                  Booking
+                </Link>
+              </li>
             </div>
           </ul>
 
           {/* Other Elements */}
-          <div className="flex items-center justify-center space-x-4">
+          <div className=" items-center justify-center space-x-4 hidden">
             <button>
               <FiUser size={25} color="white" className="" />
             </button>
@@ -73,7 +81,7 @@ const SubNavBar: React.FC = () => {
             >
               My Chauffeurs
             </Link>
-              <IoIosNotifications size={25} color="white" />
+            <IoIosNotifications size={25} color="white" />
           </div>
         </div>
 
@@ -114,6 +122,14 @@ const SubNavBar: React.FC = () => {
                     <button className="text-md sm:text-md font-semibold">
                       Log In
                     </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/booking"
+                    className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
+                  >
+                    Booking
                   </Link>
                 </li>
               </ul>

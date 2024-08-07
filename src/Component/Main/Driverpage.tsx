@@ -4,7 +4,7 @@
  import p1 from "../../assets/images/p1.jpeg";
  import p2 from "../../assets/images/p2.jpeg";
  import p3 from "../../assets/images/p3.jpg";
- import p4 from "../../assets/images/Lamborghini-wallpaper-hd-cool-car.jpg";
+ import p4 from "../../assets/images/ch3.jpg";
 
  interface Driver {
    id: number;

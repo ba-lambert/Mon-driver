@@ -4,7 +4,7 @@ import Footer    from "../Component/Footer.tsx";
 import SubNavBar from "../Component/Main/SubNavbar.tsx";
 const MainLayout = () => {
     return (
-        <div className=''>
+        <div className='font-sans'>
             <HeaderBar />
             < SubNavBar/>
             <Outlet/>
