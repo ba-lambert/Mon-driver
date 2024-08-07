@@ -13,6 +13,7 @@ import reliablility from '../../assets/Web Assets/MonChauffeur-07.png'
 import professionalism from '../../assets/Web Assets/MonChauffeur-09.png'
 import backImage from '../../assets/images/web1-04.png'
 import {FaHouseCircleCheck} from "react-icons/fa6";
+// import { FaRegStar } from "react-icons/fa6";
 
 interface TeamMember {
     id: number;
@@ -159,42 +160,42 @@ const AboutUsPage: React.FC = () => {
     //    "Committed to exceptional customer satisfaction.",
     //  ];
     return (
-      <div className="min-h-screen max-w-screen-lg mx-auto space-y-12 text-center py-20">
+      <div className="min-h-screen max-w-screen-lg mx-auto space-y-12 text-center sm:py-20 px-3 sm:px-0">
         <motion.div
           className=""
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex flex-col sm:flex-row w-full">
-            <div className="flex flex-col sm:w-1/2 p-5">
-              <motion.p
-                className="text-customGreen font-bold text-3xl"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              >
-                Overview
-              </motion.p>
-              <p className="mt-4 text-md text-gray-500 text-start">
-                Mon Chauffeur is a premier driver services company headquartered
-                in Kigali, Rwanda. Established with the goal o f availing
-                proffessional drivers committed to serve in different scenarios
-                in a client centric manner. Mon Chauffeur has become synonymous
-                with reliability , professionalism, and unparalleled customer
-                service. Our mission is to offer a comfortable, safe, and
-                convenient travel experience tailored to individual needs
-                whether for personal, corporate, or special event purposes
-              </p>
-           
-            {/* <div className="paragraphs p-4 mt-10">
+            <div className="flex flex-col sm:h-96 sm:flex-row w-full">
+                <div className="flex flex-col sm:w-1/2 p-5">
+                    <motion.p
+                        className="text-customGreen font-bold text-3xl"
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{duration: 2, ease: "easeInOut"}}
+                    >
+                        Overview
+                    </motion.p>
+                    <p className="mt-4 text-md text-gray-500 text-start">
+                        Mon Chauffeur is a premier driver services company headquartered
+                        in Kigali, Rwanda. Established with the goal o f availing
+                        proffessional drivers committed to serve in different scenarios
+                        in a client centric manner. Mon Chauffeur has become synonymous
+                        with reliability , professionalism, and unparalleled customer
+                        service. Our mission is to offer a comfortable, safe, and
+                        convenient travel experience tailored to individual needs
+                        whether for personal, corporate, or special event purposes
+                    </p>
+
+                    {/* <div className="paragraphs p-4 mt-10">
               {paragraphs.map((paragraph, index) => (
                 <div
                   key={index}
                   className= "paragraph-container flex items-start "
-                     
-                 
-                
+
+
+
                 >
                   <div className="dot-line flex flex-col items-center mr-4">
                     <FaRegStar className="text-customGreen"/>
@@ -205,58 +206,60 @@ const AboutUsPage: React.FC = () => {
                 </div>
               ))}
             </div>  */}
+                </div>
+                <div className="flex flex-col justify-end items-center text-start sm:w-1/2">
+                    <motion.div
+                        className="relative flex flex-col w-72 h-full overlay-background"
+                        style={{
+                            backgroundImage: `url(${backImage})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                        }}
+                    >
+                        <div className="absolute bottom-2 px-10 rounded-t-lg w-full">
+                            <p className="text-black mb-2 text-center">
+                                We not only drive people, <br/> we also drive safety and comfort in
+                                your everyday life.
+                            </p>
+                            <p className="text-white text-xs text-center">
+                                A great company matters if the wish is a great journey. Select from
+                                our diverse friendly drivers to get your great companion.
+                            </p>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
-            <div className="flex flex-col justify-center items-center text-start sm:w-1/2 ">
-              <motion.div
-                className="flex flex-col p-5 w-72 overlay-background"
-                style={{
-                  backgroundImage: `url(${backImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <p className="text-xl pl-6 mt-36 text-white ">
-                  We not only drive people, <br/>we also drive safety and comfort in
-                  your everyday life.
-                </p>
-                <p className="pl-3 mt-10">
-                  A great company matters if the wish is a great journey, Select
-                  from our diverse friendly drivers to get your great companion.
-                </p>
-              </motion.div>
-            </div>
-          </div>
         </motion.div>
-        <motion.div
-          className="relative p-8"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.p
-            className="text-customGreen font-bold text-2xl mb-8 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+          <motion.div
+              className="relative p-8"
+              initial={{opacity: 0, y: 50}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.5}}
           >
-            Our Strategy
-          </motion.p>
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start relative">
-            {processes.map((process, index) => (
-              <div
-                className="flex flex-col items-center justify-start relative mb-8 md:mb-0"
-                // key={index}
-                //  onClick={() => handleToggle(index)}
+              <motion.p
+                  className="text-customGreen font-bold text-2xl mb-8 text-center"
+                  initial={{opacity: 0}}
+                  animate={{opacity: 1}}
+                  transition={{duration: 2, ease: "easeInOut"}}
               >
-                <motion.div
-                  className="flex items-center justify-center w-16 h-16 bg-customGreen rounded-full mb-4"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.3 }}
-                >
-                  {process.Icon}
-                </motion.div>
-                {index < processes.length - 1 && (
+                  Our Strategy
+              </motion.p>
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start relative">
+                  {processes.map((process, index) => (
+                      <div
+                          className="flex flex-col items-center justify-start relative mb-8 md:mb-0"
+                          // key={index}
+                          //  onClick={() => handleToggle(index)}
+                      >
+                          <motion.div
+                              className="flex items-center justify-center w-16 h-16 bg-customGreen rounded-full mb-4"
+                              initial={{scale: 0}}
+                              animate={{scale: 1}}
+                              transition={{duration: 0.5, delay: index * 0.3}}
+                          >
+                              {process.Icon}
+                          </motion.div>
+                          {index < processes.length - 1 && (
                   <>
                     <div className="absolute top-9 left-1/2 transform -translate-y-1/2 w-64 h-0.5 bg-customGreen hidden md:block"></div>
                     <div className="absolute top-10 left-1/2 transform -translate-y-1/2 w-64 h-0.5 bg-customGreen hidden md:block"></div>
@@ -307,7 +310,7 @@ const AboutUsPage: React.FC = () => {
             Our Core Values
           </motion.p>
           <motion.div
-            className="p-8 flex flex-row justify-between items-start flex-wrap gap-2 w-full"
+            className="flex flex-row justify-between items-start flex-wrap gap-2 w-full"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -340,7 +343,7 @@ const AboutUsPage: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-center">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-4 gap-6">
             {teamMembers.map((member) => (
               <motion.div
                 key={member.id}

@@ -33,8 +33,8 @@
    };
 
    return (
-     <div className="min-h-screen flex items-center justify-center pb-32 bg-gray-100">
-       <Container size="md" py="2xl" className="bg-white rounded-lg shadow-lg">
+     <div className="min-h-screen flex  items-center justify-center pb-32 bg-gray-100">
+       <Container size="md" py="2xl" className="bg-white  rounded-lg shadow-lg">
          <Group align="flex-start">
            <Box
              className="flex-1 p-6 bg-cover bg-center rounded-lg text-white"
@@ -42,29 +42,37 @@
                backgroundImage: `url(${bg})`,
                backgroundSize: "cover",
                backgroundPosition: "center",
-               height: "90vh",
+               height: "50vh",
              }}
-           > <div className="bg-customGreen rounded-t-full pt-20 mt-20"> 
-             <Title order={2} className="text-white">
-               Contact Us
-             </Title>
-             <Title order={1} mt="xs" className="text-white">
-               Corporate Office
-             </Title>
-             <Stack mt="40vh" ml="2vh">
-               <p>Airport avenue, KN 5 RD, Gasabo, Kigali-Rwanda</p>
-               <p>Email: monchauffeur.rw@gmail.com</p>
-               <p>Phone: +250 794 415 787 or 6200</p>
-             </Stack>
+           >
+            
+             <div className="bg-customGreen inset-0 bg-gradient-to-b  from-transparent to-black bg-opacity-80 rounded-t-full flex flex-col p-2 text-center pt-20 mt-20">
+               <div>
+                 <Title order={2} className="text-white ">
+                   Contact Us
+                 </Title>
+               </div>
+               <div>
+                 <Title order={1} mt="xl" className="text-white ">
+                   Corporate Office
+                 </Title>
+               </div>
+               <div>
+                 <Stack mt="xl">
+                   <p>Airport avenue, KN 5 RD, Gasabo, Kigali-Rwanda</p>
+                   <p>Email: monchauffeur.rw@gmail.com</p>
+                   <p>Phone: +250 794 415 787 or 6200</p>
+                 </Stack>
+               </div>
              </div>
            </Box>
 
-           <Box className="flex-1 p-6">
+           <Box className="flex-1 pt-24  sm:p-6">
              <Title order={3} mb="md" className="text-gray-800">
                Send a Message
              </Title>
              <form onSubmit={handleSubmit(onSubmit)}>
-               <Stack >
+               <Stack>
                  <Group grow>
                    <Controller
                      name="name"

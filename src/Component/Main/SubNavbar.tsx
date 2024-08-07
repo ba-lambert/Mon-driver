@@ -59,11 +59,19 @@ const SubNavBar: React.FC = () => {
                   Log In
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/booking"
+                  className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
+                >
+                  Booking
+                </Link>
+              </li>
             </div>
           </ul>
 
           {/* Other Elements */}
-          <div className="flex items-center justify-center space-x-4 hidden">
+          <div className=" items-center justify-center space-x-4 hidden">
             <button>
               <FiUser size={25} color="white" className="" />
             </button>
@@ -73,7 +81,7 @@ const SubNavBar: React.FC = () => {
             >
               My Chauffeurs
             </Link>
-              <IoIosNotifications size={25} color="white" />
+            <IoIosNotifications size={25} color="white" />
           </div>
         </div>
 
@@ -114,6 +122,14 @@ const SubNavBar: React.FC = () => {
                     <button className="text-md sm:text-md font-semibold">
                       Log In
                     </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/booking"
+                    className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
+                  >
+                    Booking
                   </Link>
                 </li>
               </ul>
