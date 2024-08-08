@@ -12,7 +12,11 @@ import integrity from '../../assets/Web Assets/MonChauffeur-05.png'
 import reliablility from '../../assets/Web Assets/MonChauffeur-07.png'
 import professionalism from '../../assets/Web Assets/MonChauffeur-09.png'
 import backImage from '../../assets/images/web1-04.png'
-import {FaHouseCircleCheck} from "react-icons/fa6";
+// import {FaHouseCircleCheck} from "react-icons/fa6";
+import i1 from "../../assets/images/Icons-02.png";
+import i2 from "../../assets/images/Icons-03.png";
+import i3 from "../../assets/images/Icons-04.png";
+import i4 from "../../assets/images/Icons-05.png";
 // import { FaRegStar } from "react-icons/fa6";
 
 interface TeamMember {
@@ -102,22 +106,22 @@ const AboutUsPage: React.FC = () => {
         {
             title: 'Recruitment',
             description: 'We source and attract top talent.',
-            Icon: <FaHouseCircleCheck/>
+            Icon: i4
         },
         {
             title: 'Vetting',
             description: 'We thoroughly check backgrounds and qualifications.',
-            Icon: <FaHouseCircleCheck/>
+            Icon: i1
         },
         {
             title: 'Training',
             description: 'We provide comprehensive training programs.',
-            Icon: <FaHouseCircleCheck/>
+            Icon: i2
         },
         {
             title: 'Management',
             description: 'We ensure ongoing support and development.',
-            Icon: <FaHouseCircleCheck/>
+            Icon: i3
         },
     ];
     const values = [
@@ -167,28 +171,28 @@ const AboutUsPage: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-            <div className="flex flex-col sm:h-96 sm:flex-row w-full">
-                <div className="flex flex-col sm:w-1/2 p-5">
-                    <motion.p
-                        className="text-customGreen font-bold text-3xl"
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{duration: 2, ease: "easeInOut"}}
-                    >
-                        Overview
-                    </motion.p>
-                    <p className="mt-4 text-md text-gray-500 text-start">
-                        Mon Chauffeur is a premier driver services company headquartered
-                        in Kigali, Rwanda. Established with the goal o f availing
-                        proffessional drivers committed to serve in different scenarios
-                        in a client centric manner. Mon Chauffeur has become synonymous
-                        with reliability , professionalism, and unparalleled customer
-                        service. Our mission is to offer a comfortable, safe, and
-                        convenient travel experience tailored to individual needs
-                        whether for personal, corporate, or special event purposes
-                    </p>
+          <div className="flex flex-col sm:h-96 sm:flex-row w-full">
+            <div className="flex flex-col sm:w-1/2 p-5">
+              <motion.p
+                className="text-customGreen font-bold text-3xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              >
+                Overview
+              </motion.p>
+              <p className="mt-4 text-md text-gray-500 text-start">
+                Mon Chauffeur is a premier driver services company headquartered
+                in Kigali, Rwanda. Established with the goal o f availing
+                proffessional drivers committed to serve in different scenarios
+                in a client centric manner. Mon Chauffeur has become synonymous
+                with reliability , professionalism, and unparalleled customer
+                service. Our mission is to offer a comfortable, safe, and
+                convenient travel experience tailored to individual needs
+                whether for personal, corporate, or special event purposes
+              </p>
 
-                    {/* <div className="paragraphs p-4 mt-10">
+              {/* <div className="paragraphs p-4 mt-10">
               {paragraphs.map((paragraph, index) => (
                 <div
                   key={index}
@@ -206,63 +210,69 @@ const AboutUsPage: React.FC = () => {
                 </div>
               ))}
             </div>  */}
-                </div>
-                <div className="flex flex-col justify-end items-center text-start sm:w-1/2">
-                    <motion.div
-                        className="relative flex flex-col w-72 h-full overlay-background"
-                        style={{
-                            backgroundImage: `url(${backImage})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                        }}
-                    >
-                        <div className="absolute bottom-2 px-10 rounded-t-lg w-full">
-                            <p className="text-black mb-2 text-center">
-                                We not only drive people, <br/> we also drive safety and comfort in
-                                your everyday life.
-                            </p>
-                            <p className="text-white text-xs text-center">
-                                A great company matters if the wish is a great journey. Select from
-                                our diverse friendly drivers to get your great companion.
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
             </div>
-        </motion.div>
-          <motion.div
-              className="relative p-8"
-              initial={{opacity: 0, y: 50}}
-              whileInView={{opacity: 1, y: 0}}
-              transition={{duration: 0.5}}
-          >
-              <motion.p
-                  className="text-customGreen font-bold text-2xl mb-8 text-center"
-                  initial={{opacity: 0}}
-                  animate={{opacity: 1}}
-                  transition={{duration: 2, ease: "easeInOut"}}
+            <div className="flex flex-col  items-center text-start sm:w-1/2">
+              <motion.div
+                className=" absolute sm:flex sm:flex-col w-72 h-96 overlay-background"
+                style={{
+                  backgroundImage: `url(${backImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
               >
-                  Our Strategy
-              </motion.p>
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start relative">
-                  {processes.map((process, index) => (
-                      <div
-                          className="flex flex-col items-center justify-start relative mb-8 md:mb-0"
-                          // key={index}
-                          //  onClick={() => handleToggle(index)}
-                      >
-                          <motion.div
-                              className="flex items-center justify-center w-16 h-16 bg-customGreen rounded-full mb-4"
-                              initial={{scale: 0}}
-                              animate={{scale: 1}}
-                              transition={{duration: 0.5, delay: index * 0.3}}
-                          >
-                              {process.Icon}
-                          </motion.div>
-                          {index < processes.length - 1 && (
+                <div className="absolute bottom-2 px-10 rounded-t-lg w-full">
+                  <p className="text-black mb-2 text-center">
+                    We not only drive people, <br /> we also drive safety and
+                    comfort in your everyday life.
+                  </p>
+                  <p className="text-white text-xs text-center">
+                    A great company matters if the wish is a great journey.
+                    Select from our diverse friendly drivers to get your great
+                    companion.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div
+          className="relative p-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.p
+            className="text-customGreen font-bold text-2xl sm:mt-0 mt-96 sm:mb-8 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          >
+            Our Strategy
+          </motion.p>
+          <div className="flex flex-col md:flex-row sm:mt-0 mt-2 md:items-start relative">
+            {processes.map((process, index) => (
+              <div
+                className="flex flex-col items-center justify-start relative mb-8 md:mb-0"
+                // key={index}
+                //  onClick={() => handleToggle(index)}
+              >
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-customGreen rounded-full mb-4"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.3 }}
+                >
+                  <img
+                    src={process.Icon}
+                    alt={process.title}
+                    className="w-12 h-12 object-contain"
+                  />
+                </motion.div>
+
+                {index < processes.length - 1 && (
                   <>
-                    <div className="absolute top-9 left-1/2 transform -translate-y-1/2 w-64 h-0.5 bg-customGreen hidden md:block"></div>
-                    <div className="absolute top-10 left-1/2 transform -translate-y-1/2 w-64 h-0.5 bg-customGreen hidden md:block"></div>
+                    <div className="absolute top-9 left-32 transform -translate-y-1/2 w-64 h-0.5 bg-customGreen hidden md:block"></div>
+                    <div className="absolute top-10 left-32 transform -translate-y-1/2 w-64 h-0.5 bg-customGreen hidden md:block"></div>
                   </>
                 )}
                 <motion.h3
@@ -273,16 +283,14 @@ const AboutUsPage: React.FC = () => {
                 >
                   {process.title}
                 </motion.h3>
-                {/* {expandedIndex === index && ( */}
-                  <motion.div
-                    className="text-gray-600 w-full pl-4 pr-4 md:pl-16 text-sm"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: index * 0.3 }}
-                  >
-                    <p>{process.description}</p>
-                  </motion.div>
-                {/* )} */}
+                <motion.div
+                  className="text-gray-600 w-full pl-4 pr-4 md:pl-16 text-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: index * 0.3 }}
+                >
+                  <p>{process.description}</p>
+                </motion.div>
               </div>
             ))}
           </div>
