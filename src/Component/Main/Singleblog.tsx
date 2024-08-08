@@ -25,7 +25,7 @@ const blog: Blog | undefined = blogData.find((blog) => blog.id === id);
       <div className="prose pb-16">
         <p>{blog.content}</p>
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className=" flex flex-wrap sm:grid sm:grid-cols-3 gap-3">
         <img
           src={blog.secondaryImage}
           alt={blog.title}
