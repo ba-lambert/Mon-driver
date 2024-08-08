@@ -41,8 +41,8 @@ const Blogs = () => {
                   alt={blog.title}
                   className="w-full h-full object-cover rounded-lg shadow-lg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t  from-blue-700 via-transparent to-transparent rounded-lg">
-                  <p className="absolute bottom-4 mb-8 left-4 text-3xl text-green-500 font-bold">
+                <div className="absolute inset-0 bg-gradient-to-t  from-blue-500 via-transparent to-transparent rounded-lg">
+                  <p className="absolute bottom-4  left-4 text-2xl text-white font-extrabold">
                     {blog.title}
                   </p>
                 </div>

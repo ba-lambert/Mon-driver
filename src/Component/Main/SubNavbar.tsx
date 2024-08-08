@@ -52,6 +52,13 @@ const SubNavBar: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/myblog" onClick={handleMenuItemClick}>
+                  <button className="text-md sm:text-md font-semibold w-20 sm:w-24">
+                  Blog
+                  </button>
+                </Link>
+              </li>
+              {/* <li>
                 <Link
                   to="/login"
                   className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
@@ -65,8 +72,8 @@ const SubNavBar: React.FC = () => {
                   className="sm:text-md sm:mt-4 sm:mr-0 text-sm sm:mb-0 mb-10 font-semibold"
                 >
                   Booking
-                </Link>
-              </li>
+                </Link> */}
+              {/* </li> */}
             </div>
           </ul>
 
@@ -118,6 +125,13 @@ const SubNavBar: React.FC = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/myblog" onClick={handleMenuItemClick}>
+                    <button className="text-md sm:text-md font-semibold w-20 sm:w-24">
+                      Blog
+                    </button>
+                  </Link>
+                </li>
+                {/* <li>
                   <Link to="/LogIn" onClick={handleMenuItemClick}>
                     <button className="text-md sm:text-md font-semibold">
                       Log In
@@ -131,7 +145,7 @@ const SubNavBar: React.FC = () => {
                   >
                     Booking
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

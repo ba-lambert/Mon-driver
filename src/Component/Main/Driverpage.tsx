@@ -4,7 +4,7 @@
  import p1 from "../../assets/images/p1.jpeg";
  import p2 from "../../assets/images/p2.jpeg";
  import p3 from "../../assets/images/p3.jpg";
- import p4 from "../../assets/images/ch3.jpg";
+//  import p4 from "../../assets/images/ch3.jpg";
 
  interface Driver {
    id: number;
@@ -25,23 +25,25 @@
  }
 
  const DriverCard: React.FC<DriverCardProps> = ({ driver, onViewProfile }) => (
-   <div className="bg-customGreen bg-opacity-90 w-72 shadow-md rounded-lg mb-16 flex flex-col items-center">
+   <div className="bg-customGreen bg-opacity-90 w-56 h-52 shadow-md rounded-t-lg mb-16 flex flex-col items-center">
      <img
        src={driver.image}
        alt={driver.name}
-       className="rounded-full relative ml-8 -top-10 ring-0 ring-offset-customBlue ring-offset-[5px] object-cover h-20 w-20"
+       className="rounded-full relative   -top-10 ring-0 ring-offset-customGreen ring-offset-[5px] object-cover h-20 w-20"
      />
-     <h3 className="text-lg font-semibold text-green-400 mb-2">
+     <h3 className="text-lg font-semibold text-green-400  p-2">
        {driver.name}
      </h3>
-     <p className="text-white mb-1">Location: {driver.location}</p>
-     <p className="text-white mb-1">
+     <p className="text-white text-sm  ">Location: {driver.location}</p>
+     <p className="text-white text-sm ">
        Years of Experience: {driver.yearsOfExperience}
      </p>
-     <p className="text-white mb-1 mr-16">Category: {driver.category}</p>
-     <p className="text-white mb-1">Year of License: {driver.yearOfLicense}</p>
+     <p className="text-white   text-sm">Category: {driver.category}</p>
+     <p className="text-white  text-sm">
+       Year of License: {driver.yearOfLicense}
+     </p>
      <button
-       className="bg-customBlue text-white font-semibold py-2 mb-5 ml-10 px-4 rounded mt-4 hover:text-white hover:bg-customBlue"
+       className="bg-customBlue text-white font-semibold px-16 text-sm py-1 rounded-b-lg mt-1 hover:text-white hover:bg-customBlue"
        onClick={() => onViewProfile(driver)}
      >
        View My Profile
@@ -97,7 +99,7 @@
        yearsOfExperience: 6,
        category: "A",
        yearOfLicense: 2014,
-       image: p4,
+       image: p1,
        otherSkills: "Expert in highway driving, Safety protocols",
        knowledge: "Expert in city routes, Reliable",
        preferences: "Prefers morning shifts, Enjoys weekend drives",
@@ -120,11 +122,11 @@
    };
 
    return (
-     <div className="p-6 bg-customBlue min-h-screen">
-       <h2 className="text-4xl text-emerald-200 sm:ml-96 p-9 font-bold mb-4">
+     <div className="p-6   min-h-screen">
+       <h2 className="text-4xl text-emerald-200  max-w-screen-lg mx-auto p-9 font-bold mb-4">
          Driver Profiles
        </h2>
-       <div className="grid grid-cols-1 ml-5 sm:ml-0 sm:grid-cols-2 md:grid-cols-4">
+       <div className="grid grid-cols-1  max-w-screen-lg mx-auto sm:grid-cols-2 md:grid-cols-4">
          {drivers.map((driver) => (
            <DriverCard
              key={driver.id}
@@ -137,13 +139,10 @@
          <DriverModal
            driver={selectedDriver}
            onClose={handleCloseModal}
-           onBookDriver={handleBookDriver} 
+           onBookDriver={handleBookDriver}
          />
        )}
-       {isBookingModalOpen && (
-         <BookingModal
-         />
-       )}
+       {isBookingModalOpen && <BookingModal />}
      </div>
    );
  };

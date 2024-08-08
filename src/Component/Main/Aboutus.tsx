@@ -37,38 +37,38 @@ interface Testimonial {
 }
 
 const teamMembers: TeamMember[] = [
-    {
-        id: 1,
-        name: "John Doe",
-        position: "CEO",
-        contact: "0788091723",
-        email: "john@example.com",
-        image: p1,
-    },
-    {
-        id: 2,
-        name: "Jane Smith",
-        position: "Secretary",
-        contact: "0788091723",
-        email: "jane@example.com",
-        image: p2,
-    },
-    {
-        id: 3,
-        name: "John Doe",
-        position: "CEO",
-        contact: "0788091723",
-        email: "john@example.com",
-        image: p3,
-    },
-    {
-        id: 4,
-        name: "Jane Smith",
-        position: "Secretary",
-        contact: "0788091723",
-        email: "jane@example.com",
-        image: p2,
-    },
+  {
+    id: 1,
+    name: "ALIDAH IGAJU AKALIZA",
+    position: "Executive Director",
+    contact: "0786722457",
+    email: "akaliza.monchauffeur@gmail.com",
+    image: p1,
+  },
+  {
+    id: 2,
+    name: "ANDY KAYIRANGA",
+    position: " MANAGING DIRECTOR",
+    contact: " 0791284062",
+    email: "kayiranga.monchauffeur@gmail.com",
+    image: p2,
+  },
+  {
+    id: 3,
+    name: " .ARNAUD SHEMA KAYIRANGA ",
+    position: " OPERATIONS MANAGER",
+    contact: " 0787139781",
+    email: "shema.monchauffeur@gmail.com",
+    image: p3,
+  },
+  // {
+  //   id: 4,
+  //   name: "Jane Smith",
+  //   position: "Secretary",
+  //   contact: "0788091723",
+  //   email: "jane@example.com",
+  //   image: p2,
+  // },
 ];
 
 const testimonials: Testimonial[] = [
@@ -351,7 +351,7 @@ const AboutUsPage: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-center">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-3 gap-6">
             {teamMembers.map((member) => (
               <motion.div
                 key={member.id}

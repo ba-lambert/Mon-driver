@@ -6,6 +6,8 @@ import pe2 from "../../assets/images/p2.jpeg";
 import pe3 from "../../assets/images/p3.jpg";
 import cr1 from "../../assets/images/caru2.png";
 import {IoIosClose} from "react-icons/io";
+import { Link } from "react-router-dom";
+// import DriverPage from "./Driverpage";
 
 interface DriverInfo {
   name: string;
@@ -48,7 +50,7 @@ const Whyus: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const openModal = () => setModalIsOpen(true);
+  // const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
   const handleRatingClick = (index: number, rating: number) => {
@@ -135,7 +137,7 @@ const Whyus: React.FC = () => {
                     alt="Driver avatar"
                     className="w-16 h-20 mt-3 rounded-lg"
                 />
-                <div className="sm:mt-5 sm:h-20 bg-blue-100 sm:mb-2 flex lg:flex-row items-center flex-grow">
+                <div className="sm:mt-5 sm:h-20 bg-blue-100 sm:mb-2 flex lg:flex-row w-full items-center flex-grow">
                   <div className="flex flex-col lg:ml-3 lg:justify-start justify-center">
                     <p className="text-customGreen text-center lg:text-left font-semibold">
                       {driver.name}
@@ -145,9 +147,9 @@ const Whyus: React.FC = () => {
                       {driver.letters.split('').map((letter, index) => (
                           <div
                               key={index}
-                              className="border-2 border-gray-600 rounded-lg p-2 h-2 w-2 flex items-center justify-center bg-lightBlue"
+                              className="border-2 bg-customGr border-gray-600 rounded-lg p-2 h-2 w-2 flex items-center justify-center bg-customGreen"
                           >
-                            <p className="text-gray-600">{letter}</p>
+                            <p className="text-white   ">{letter}</p>
                           </div>
                       ))}
                     </div>
@@ -167,12 +169,12 @@ const Whyus: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  <button
+                  {/* <button
                       onClick={openModal}
                       className="text-customGreen w-16 sm:w-28 ml-10 sm:ml-32 h-20 rounded-r-lg bg-customBlue font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
                   >
                     {driver.text}
-                  </button>
+                  </button> */}
                 </div>
               </motion.div>
           ))}
@@ -182,7 +184,9 @@ const Whyus: React.FC = () => {
               transition={{duration: 0.8}}
               className="rounded-full w-full lg:w-96 p-1 mt-7 text-white text-lg bg-customGreen"
           >
-            <button className="w-full text-green-400">Browse More Drivers</button>
+            <Link to="/Driverpage">
+            <button className="w-full text-green-200">Browse More Drivers</button>
+          </Link>
           </motion.div>
         </div>
         {modalIsOpen && (
