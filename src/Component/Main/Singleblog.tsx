@@ -26,20 +26,21 @@ const blog: Blog | undefined = blogData.find((blog) => blog.id === id);
         <p>{blog.content}</p>
       </div>
       <div className=" flex flex-wrap sm:grid sm:grid-cols-3 gap-3">
+
         <img
           src={blog.secondaryImage}
           alt={blog.title}
           className="w-96 max- h-full object-cover rounded-lg mb-4"
         />
         <img
-          src={blog.secondaryImage}
+          src={blog.tertiaryImage}
           alt={blog.title}
-          className="w-96 max- h-full object-cover rounded-lg mb-4"
+          className="w-96 max- h-full object-contain rounded-lg mb-4"
         />
         <img
-          src={blog.secondaryImage}
+          src={blog.image}
           alt={blog.title}
-          className="w-96 max- h-full object-cover rounded-lg mb-4"
+          className="w-96 max- h-full  object-cover rounded-lg mb-4"
         />
       </div>
       <div className="prose pb-16">

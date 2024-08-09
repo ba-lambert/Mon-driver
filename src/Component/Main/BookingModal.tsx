@@ -134,7 +134,7 @@ const BookDriver: React.FC<BookDriverProps> = ({ styles }) => {
   return (
       <div className={`flex justify-center items-center h-full ${styles}`}>
         {isError && <p>Something went wrong</p>}
-        <Button onClick={open}>Book Now</Button>
+        <Button onClick={open} >Book Now</Button>
         <Modal
             opened={opened}
             onClose={handleClose}

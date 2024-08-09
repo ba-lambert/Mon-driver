@@ -26,7 +26,7 @@ export const blogs: Blog[] = [
       " /src/assets/images/vecteezy_ai-generated-joyful-black-skinned-businessman-by-his-car_42239659.png",
     // style: "bg-blue-100",
     secondaryImage: "/src/assets/images/caru2.png", // Add the URL of the second image
-    tertiaryImage: "/src/assets/images/third-image1.png",
+    tertiaryImage: "/src/assets/images/ch3.jpg",
   },
   {
     id: "2",
@@ -41,6 +41,7 @@ export const blogs: Blog[] = [
     image: " /src/assets/images/caru2.png",
     secondaryImage: "/src/assets/images/person1.png", // Add the URL of the second image
     tertiaryImage: "/src/assets/images/p2.jpeg",
+
     // style: "bg-green-100",
   },
   {
@@ -55,6 +56,7 @@ export const blogs: Blog[] = [
     `,
     image: "  /src/assets/images/car1.png",
     secondaryImage: " /src/assets/images/p2.jpeg",
+    tertiaryImage: "/src/assets/images/f2.jpg",
     // style: "bg-yellow-100",
   },
   {
@@ -69,6 +71,7 @@ export const blogs: Blog[] = [
     `,
     image: "/src/assets/images/ch1.jpg",
     secondaryImage: " /src/assets/images/ch2.jpg",
+    tertiaryImage: "/src/assets/images/f2.jpg",
     // style: "bg-red-100",
   },
   {
@@ -81,6 +84,7 @@ export const blogs: Blog[] = [
     `,
     image: " /src/assets/images/ch3.jpg",
     secondaryImage: " /src/assets/images/car1.jpeg",
+    tertiaryImage: "/src/assets/images/ch3.jpg",
     // style: "bg-purple-100",
   },
 ];

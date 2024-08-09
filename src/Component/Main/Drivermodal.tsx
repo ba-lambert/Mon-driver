@@ -4,7 +4,7 @@
    id: number;
    name: string;
    location: string;
-   yearsOfExperience: number;
+   yearsOfExperience: string;
    category: string;
    yearOfLicense: number;
    image: string;
@@ -14,13 +14,13 @@
  }
 
  interface DriverModalProps {
-   driver: Driver;
+   drivers: Driver;
    onClose: () => void;
-   onBookDriver: (driver: Driver) => void;
+   onBookDriver: (Drivers: Driver) => void;
  }
 
  const DriverModal: React.FC<DriverModalProps> = ({
-   driver,
+   drivers,
    onClose,
    onBookDriver,
  }) => (
@@ -32,23 +32,23 @@
        >
          X
        </button>
-       <h3 className="text-xl font-bold mb-4">{driver.name}'s Profile</h3>
-       <p className="text-white mb-2">Location: {driver.location}</p>
+       <h3 className="text-xl font-bold mb-4">{drivers.name}'s Profile</h3>
+       <p className="text-white mb-2">Location: {drivers.location}</p>
        <p className="text-white mb-2">
-         Years of Experience: {driver.yearsOfExperience}
+         Years of Experience: {drivers.yearsOfExperience}
        </p>
-       <p className="text-white mb-2">Category: {driver.category}</p>
+       <p className="text-white mb-2">Category: {drivers.category}</p>
        <p className="text-white mb-2">
-         Year of License: {driver.yearOfLicense}
+         Year of License: {drivers.yearOfLicense}
        </p>
-       <p className="text-white mb-2">Other Skills: {driver.otherSkills}</p>
-       <p className="text-white mb-2">Knowledge: {driver.knowledge}</p>
-       <p className="text-white mb-2">Preferences: {driver.preferences}</p>
+       <p className="text-white mb-2">Other Skills: {drivers.otherSkills}</p>
+       <p className="text-white mb-2">Knowledge: {drivers.knowledge}</p>
+       <p className="text-white mb-2">Preferences: {drivers.preferences}</p>
        <button
          className="bg-black text-customGreen w-full py-2 px-4 rounded mt-4 hover:bg-customBlue"
-         onClick={() => onBookDriver(driver)}
+         onClick={() => onBookDriver(drivers)}
        >
-         BOOK {driver.name}
+         BOOK {drivers.name}
        </button>
      </div>
    </div>
