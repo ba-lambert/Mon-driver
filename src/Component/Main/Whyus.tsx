@@ -76,7 +76,7 @@
    ];
 
    return (
-     <div className="flex flex-col lg:flex-row justify-center items-center p-6 mt-3 sm:w-full w-96">
+     <div className="flex flex-col lg:flex-row justify-center max-w-screen-2xl mx-auto items-center p-6 mt-3 sm:w-full w-96">
        <motion.div
          initial={{ opacity: 0, y: 50 }}
          whileInView={{ opacity: 1, y: 0 }}

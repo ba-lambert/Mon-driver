@@ -21,10 +21,12 @@ const Blogs = () => {
   ];
 
   return (
-    <div className="bg-white py-5 sm:py-32">
+    <div className="bg-white max-w-screen-2xl mx-auto py-5 sm:py-32">
       <div className="flex flex-row items-center justify-center space-x-5 mb-10">
         <div className="w-20 sm:w-32 h-[2px] rounded-full bg-green-300"></div>
-        <p className="sm:text-2xl font-semibold text-green-500">Our Latest Blog</p>
+        <p className="sm:text-2xl font-semibold text-green-500">
+          Our Latest Blog
+        </p>
         <div className="w-20 sm:w-32 h-[2px] rounded-full bg-green-300"></div>
       </div>
       <div className="flex items-center flex-wrap justify-center">

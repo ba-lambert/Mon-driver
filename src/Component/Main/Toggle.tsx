@@ -28,7 +28,7 @@ const DriverRecruitmentForm = () => {
   }, [modalIsOpen]);
 
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
